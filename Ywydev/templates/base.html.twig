@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    {% block description %}
+        <meta name="description" content="">
+    {% endblock %}
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    {% block new_keywords %}
+        <meta name="new_keywords" content="">
+    {% endblock %}
+    {% block keywords %}
+        <meta name="keywords" content="">
+    {% endblock %}
+    <meta name="geo.placename" content="69000 LYON France">
+    <meta property="og:type" content="website">
+    {% block og_title %}
+        <meta property="og:title" content="">
+    {% endblock %}
+    {% block og_url %}
+        <meta property="og:url" content="">
+    {% endblock %}
+    <meta property="og:image" content="">
+    <meta property="og:image:secure_url" content="">
+    <meta property="og:image:type" content="i">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:alt" content="">
+    {% block og_description %}
+        <meta property="og:description" content="!">
+    {% endblock %}
+    <meta property="og:site_name" content="">
+    <meta property="og:determiner" content="">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Google Analytics -->
+    <!-- <script>
+        window.ga = window.ga || function() {
+            (ga.q = ga.q || []).push(arguments)
+        };
+        ga.l = +new Date;
+        ga('create', '', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script> -->
+    <title>{% block title %}base{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+</head>
+
+<body>
+<div id="app" class="container">
+    {% block body %}{% endblock %}
+</div>
+<footer>
+    {% block footer %}{% endblock %}
+</footer>
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <!-- Renders app.js & a webpack runtime.js file
+        <script src="/build/runtime.js"></script>
+        <script src="/build/app.js"></script> -->
+{% endblock %}
+</body>
+
 </html>
