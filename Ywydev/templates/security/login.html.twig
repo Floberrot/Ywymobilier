@@ -10,8 +10,7 @@
     </head>
     <style>
         body {
-            background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(0, 0, 0, 0.75) 0%, rgb(0, 0, 0) 120%) #989898;
-            background-blend-mode: multiply,multiply;
+            background: white;
         }
         #bienvenue {
             font-size: 12px;
@@ -24,6 +23,7 @@
         }
 
         #but_ins {
+            background-color: white;
             border-color: white;
             color: black;
         }
@@ -67,6 +67,7 @@
         }
 
         #checkboxes {
+            color: white;
             margin: 30px 0 0 0;
 
         }
@@ -133,43 +134,11 @@
             border-color: #7b7b7b;
         }
 
-        .topnav {
-            overflow: hidden;
-            background-color: #333;
-            margin-top: 50px;
-            border-radius: 50px;
-        }
-
-        .topnav a {
-            float: left;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .topnav a:hover {
-            background-color: grey;
-            color: black;
-        }
-
-        .topnav a.active {
-            background-color: lightpink;
-            color: white;
-        }
     </style>
-
-    <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-    </div>
 
     <!--#region Connexion User !  -->
 
-    <div id="connexion" class="card bg-light">
+    <div id="connexion" class="card bg-dark">
         <article id="article_connexion" class="card-body mx-auto">
             <h1 id="title" class="card-title mt-3 text-center">Connexion</h1>
             <form method="post">
@@ -201,7 +170,7 @@
                         <input type="hidden" name="_csrf_token"
                                value="{{ csrf_token('authenticate') }}"
                         >
-                        <button class="btn" type="submit" name="mdp">Mot de passe oublié ?</button>
+                        <button class="btn " type="submit" name="mdp" style="color: white">Mot de passe oublié ?</button>
 
 
                         <div id="checkboxes" class="control-group">
@@ -238,13 +207,13 @@
 
 
     <!--#region Inscription User !-->
-    <div id="inscription" class="card bg-light">
+    <div id="inscription" class="card bg-dark">
 
 
         <article id="article_ins" class="card-body mx-auto">
             <h1 id="title" class="card-title mt-3 text-center">Inscription</h1>
 
-            <p id="bienvenue">La futur application pour aider les étudiants à trouver un logement.
+            <p id="bienvenue" class="text-light text-center">La futur application pour aider les étudiants à trouver un logement.
                 Ywymobilier est sensé regrouper les offres des particuliers pour trouver des locataires (en priotité a des prix abordable pour les étudiants).
                 N'attendez plus, inscrivez-vous!</p>
 
