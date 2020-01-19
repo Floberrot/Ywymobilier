@@ -110,6 +110,7 @@
       <path value="$PROJECT_DIR$/Ywydev/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/Ywydev/vendor/symfony/http-client" />
       <path value="$PROJECT_DIR$/Ywydev/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/Ywydev/vendor/cocur/slugify" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

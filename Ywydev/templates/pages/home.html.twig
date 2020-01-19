@@ -24,4 +24,22 @@
             est joué !!
         </p>
     </div>
+    <div class="container">
+        <h2>Dernieres offres</h2>
+        <div class="row flex">
+            {% for property in properties %}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                        </h5>
+                        <p class="card-text">{{ property.city }} ({{ property.cp }})</p>
+                        <p class="text-primary" style="font-weight: bold; font-size: 1.5rem;">{{ property.formattedPrice }}€</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
