@@ -1,7 +1,37 @@
-
 body {
-    background: white;
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
+
+.menu-btn-connexion {
+    align-items: flex-end;
+}
+
+
+.title-base {
+    margin-top: 5%;
+    margin-bottom: 3%;
+    padding-bottom: 3%;
+}
+
+
+.nav-logo {
+    width: 50px;
+}
+
+.logo-home {
+    width: 20%;
+    margin-bottom: 3%;
+}
+
+.text-accueil {
+    margin-top: 5%;
+    margin-bottom: 3%;
+    padding-bottom: 3%;
+    border-bottom: 1px solid black;
+
+}
+
+
 #bienvenue {
     font-size: 12px;
     margin-bottom: 30px;
@@ -39,7 +69,8 @@ body {
 }
 
 #title {
-    color:lightpink;
+    color: deepskyblue;
+
     margin-bottom: 40px;
     font-weight: bold;
 }
@@ -61,6 +92,17 @@ body {
     margin: 30px 0 0 0;
 
 }
+
+.text-primary {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card-text {
+    font-style: italic;
+}
+
+
 
 .control {
     display: block;
@@ -120,6 +162,3 @@ body {
     transform: rotate(45deg);
 }
 
-.control-checkbox input:disabled ~ .control_indicator:after {
-    border-color: #7b7b7b;
-}
