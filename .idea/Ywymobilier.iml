@@ -10,8 +10,10 @@
       <excludeFolder url="file://$MODULE_DIR$/Ywydev/vendor/doctrine/cache" />
       <excludeFolder url="file://$MODULE_DIR$/Ywydev/vendor/doctrine/collections" />
       <excludeFolder url="file://$MODULE_DIR$/Ywydev/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/Ywydev/vendor/doctrine/data-fixtures" />
       <excludeFolder url="file://$MODULE_DIR$/Ywydev/vendor/doctrine/dbal" />
       <excludeFolder url="file://$MODULE_DIR$/Ywydev/vendor/doctrine/doctrine-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Ywydev/vendor/doctrine/doctrine-fixtures-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/Ywydev/vendor/doctrine/doctrine-migrations-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/Ywydev/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/Ywydev/vendor/doctrine/inflector" />

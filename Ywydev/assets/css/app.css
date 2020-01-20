@@ -1,3 +1,125 @@
-body{
-    background-image: linear-gradient(#5eb5e0,#7b7b7b);
+
+body {
+    background: white;
+}
+#bienvenue {
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+#log {
+    background-color: black;
+    color: white;
+}
+
+#but_ins {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+
+#but_ins, #log {
+    margin: 5px;
+    border-radius: 1px;
+    box-shadow: 1px 1px rgba(51, 21, 121, 0.23);
+}
+
+#connexion {
+    border-radius: 10px;
+    width: 60%;
+    margin: 100px auto;
+    display: block;
+}
+
+#inscription {
+    border-radius: 10px;
+    width: 80%;
+    display: none;
+    margin: 100px auto;
+}
+
+#title {
+    color:lightpink;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+#article_connexion {
+    max-width: 500px;
+}
+
+#article_ins {
+    max-width: 660px;
+}
+
+#buttons {
+    margin-top: 10px;
+}
+
+#checkboxes {
+    color: white;
+    margin: 30px 0 0 0;
+
+}
+
+.control {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #ffffff;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.control input:checked ~ .control_indicator {
+    background: lightpink;
+}
+
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+
+.control-checkbox .control_indicator:after {
+    left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.control-checkbox input:disabled ~ .control_indicator:after {
+    border-color: #7b7b7b;
 }

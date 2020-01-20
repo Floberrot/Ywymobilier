@@ -8,144 +8,36 @@
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
               crossorigin="anonymous">
     </head>
-    <style>
-        body {
-            background: white;
-        }
-        #bienvenue {
-            font-size: 12px;
-            margin-bottom: 30px;
-        }
-
-        #log {
-            background-color: black;
-            color: white;
-        }
-
-        #but_ins {
-            background-color: white;
-            border-color: white;
-            color: black;
-        }
-
-        #but_ins, #log {
-            margin: 5px;
-            border-radius: 1px;
-            box-shadow: 1px 1px rgba(51, 21, 121, 0.23);
-        }
-
-        #connexion {
-            border-radius: 10px;
-            width: 60%;
-            margin: 100px auto;
-            display: block;
-        }
-
-        #inscription {
-            border-radius: 10px;
-            width: 80%;
-            display: none;
-            margin: 100px auto;
-        }
-
-        #title {
-            color:lightpink;
-            margin-bottom: 40px;
-            font-weight: bold;
-        }
-
-        #article_connexion {
-            max-width: 500px;
-        }
-
-        #article_ins {
-            max-width: 660px;
-        }
-
-        #buttons {
-            margin-top: 10px;
-        }
-
-        #checkboxes {
-            color: white;
-            margin: 30px 0 0 0;
-
-        }
-
-        .control {
-            display: block;
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 5px;
-            padding-top: 3px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .control input {
-            position: absolute;
-            z-index: -1;
-            opacity: 0;
-        }
-
-        .control_indicator {
-            position: absolute;
-            top: 2px;
-            left: 0;
-            height: 20px;
-            width: 20px;
-            background: #ffffff;
-            border: 1px solid black;
-            border-radius: 6px;
-        }
-
-        .control input:checked ~ .control_indicator {
-            background: lightpink;
-        }
-
-        .control input:disabled ~ .control_indicator {
-            background: #e6e6e6;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .control_indicator:after {
-            box-sizing: unset;
-            content: '';
-            position: absolute;
-            display: none;
-        }
-
-        .control input:checked ~ .control_indicator:after {
-            display: block;
-        }
-
-        .control-checkbox .control_indicator:after {
-            left: 8px;
-            top: 4px;
-            width: 3px;
-            height: 8px;
-            border: solid #fff;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
-        }
-
-        .control-checkbox input:disabled ~ .control_indicator:after {
-            border-color: #7b7b7b;
-        }
-
-    </style>
 
     <!--#region Connexion User !  -->
+<div class="container">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey | trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
-    <div id="connexion" class="card bg-dark">
+    <form action="{{ path('app_login') }}" method="post">
+    <div class="form-group">
+        <label for="username">Nom utilisateur</label>
+        <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}">
+    </div>
+        <div class="form-group">
+        <label for="email">Adresse mail</label>
+        <input type="text" id="email" name="_email" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="text" id="password" name="_password" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Se connecter</button>
+    </form>
+</div>
+
+    {#<div id="connexion" class="card bg-dark">
         <article id="article_connexion" class="card-body mx-auto">
             <h1 id="title" class="card-title mt-3 text-center">Connexion</h1>
             <form method="post">
 
-                {% if error %}
-                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
+
 
                 {% if app.user %}
                     <div class="mb-3">
@@ -156,13 +48,13 @@
                     <div class="row">
 
                         <div class="form-group input-group">
-                            <input type="text" name="username" id="inputUsername" class="form-control "
-                                   placeholder="Adresse mail" autofocus>
+                            <input type="text" name="_username" id="username" class="form-control "
+                                   placeholder="Pseudo" value="{{ last_username }}" autofocus>
                         </div>
 
 
                         <div class="form-group input-group">
-                            <input type="password" name="password" id="inputPassword" class="form-control "
+                            <input type="password" name="_password" id="password" class="form-control "
                                    placeholder="Mot de passe">
                         </div>
                     </div>
@@ -170,16 +62,10 @@
                         <input type="hidden" name="_csrf_token"
                                value="{{ csrf_token('authenticate') }}"
                         >
-                        <button class="btn " type="submit" name="mdp" style="color: white">Mot de passe oublié ?</button>
+                        <button class="btn " type="submit" name="button" style="color: white">Mot de passe oublié ?</button>
 
 
-                        <div id="checkboxes" class="control-group">
-                            <label class="control control-checkbox">
-                                Se rappeler de moi
-                                <input type="checkbox"/>
-                                <div class="control_indicator"></div>
-                            </label>
-                        </div>
+
                     </div>
                     <div id="buttons">
                         <div class="cont">
@@ -202,11 +88,11 @@
         </article>
 
 
-    </div>
+    </div>#}
     <!--#endregion -->
 
 
-    <!--#region Inscription User !-->
+   {# <!--#region Inscription User !-->
     <div id="inscription" class="card bg-dark">
 
 
@@ -308,7 +194,7 @@
                 </div>
             </form>
         </article>
-    </div>
+    </div>#}
     <!--#endregion !-->
 
 
