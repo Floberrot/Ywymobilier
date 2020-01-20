@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\This;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
@@ -19,36 +20,43 @@ class Property
     private $id;
 
     /**
+     *  @Assert\Length(min=5, max=50)
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     * @Assert\Length(min=5, max=255)
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=10, max=100)
      */
     private $surface;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=1, max=10)
      */
     private $rooms;
 
     /**
+     * @Assert\Range(min=0)
      * @ORM\Column(type="integer")
      */
     private $floor;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=0,max=1000)
      */
     private $price;
 
     /**
+     * @Assert\Length(min=1, max=50)
      * @ORM\Column(type="string", length=255)
      */
     private $city;
@@ -59,6 +67,7 @@ class Property
     private $address;
 
     /**
+     * @Assert\Regex("/^[0-9]{5}$/")
      * @ORM\Column(type="string", length=255)
      */
     private $cp;
