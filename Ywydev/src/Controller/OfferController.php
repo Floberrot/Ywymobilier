@@ -29,13 +29,26 @@ class OfferController extends AbstractController
 
     /**
      * @Route ("/offres",name="Offres")
+     * @param PropertyRepository $repository
+     * @return Response
      */
-    public function index()
+    public function index(PropertyRepository $repository): Response
     {
+        $properties = $repository->findLatest();
         return $this->render('/pages/offres.html.twig', [
-            'current_menu' => 'properties',
+            'properties' => $properties,
         ]);
     }
+
+//    /**
+//     * @Route ("/offres",name="Offres")
+//     */
+//    public function index()
+//    {
+//        return $this->render('/pages/offres.html.twig', [
+//            'current_menu' => 'properties',
+//        ]);
+//    }
 
     /**
      * @Route ("/offres/{slug}.{id}",name="property.show", requirements={"slug": "[a-z0-9/-]*"})
