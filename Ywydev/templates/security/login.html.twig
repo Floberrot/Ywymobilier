@@ -12,27 +12,27 @@
 
 
     <!--#region Connexion User !  -->
-<div class="container">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey | trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    <form action="{{ path('app_login') }}" method="post">
-    <div class="form-group">
-        <label for="username">Nom utilisateur</label>
-        <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}">
+    <div class="container col-md-5">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey | trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <h1 class="title-base text-center">CONNEXION</h1>
+
+        <form id="form_connexion" action="{{ path('app_login') }}" method="post">
+            <div class="form-group">
+                <input type="text" id="username" name="_username" class="form-control rounded-pill" placeholder="Nom d'utilisateur" autofocus value="{{ last_username }}">
+            </div>
+            <div class="form-group">
+                <input type="text" id="email" name="_email" placeholder="Adresse mail" class="form-control rounded-pill">
+            </div>
+            <div class="form-group">
+                <input type="text" id="password" name="_password"  placeholder="Mot de passe" class="form-control rounded-pill">
+            </div>
+            <button id="but_ins" type="submit" class="btn text-center">Se connecter</button>
+        </form>
     </div>
-        <div class="form-group">
-        <label for="email">Adresse mail</label>
-        <input type="text" id="email" name="_email" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="text" id="password" name="_password" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary">Se connecter</button>
-    </form>
-</div>
 
     {#<div id="connexion" class="card bg-dark">
         <article id="article_connexion" class="card-body mx-auto">
@@ -94,109 +94,109 @@
     <!--#endregion -->
 
 
-   {# <!--#region Inscription User !-->
-    <div id="inscription" class="card bg-dark">
+    {# <!--#region Inscription User !-->
+     <div id="inscription" class="card bg-dark">
 
 
-        <article id="article_ins" class="card-body mx-auto">
-            <h1 id="title" class="card-title mt-3 text-center">Inscription</h1>
+         <article id="article_ins" class="card-body mx-auto">
+             <h1 id="title" class="card-title mt-3 text-center">Inscription</h1>
 
-            <p id="bienvenue" class="text-light text-center">La futur application pour aider les étudiants à trouver un logement.
-                Ywymobilier est sensé regrouper les offres des particuliers pour trouver des locataires (en priotité a des prix abordable pour les étudiants).
-                N'attendez plus, inscrivez-vous!</p>
+             <p id="bienvenue" class="text-light text-center">La futur application pour aider les étudiants à trouver un logement.
+                 Ywymobilier est sensé regrouper les offres des particuliers pour trouver des locataires (en priotité a des prix abordable pour les étudiants).
+                 N'attendez plus, inscrivez-vous!</p>
 
-            <form>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <!--#region Prénom !-->
-                            <div id="input" class="form-group input-group">
-                                <div class="input-group-prepend">
-                                </div>
-                                <input name="" class="form-control " placeholder="Prénom" type="text">
-                            </div>
-                            <!--#endregion !-->
+             <form>
+                 <div class="container">
+                     <div class="row">
+                         <div class="col-sm">
+                             <!--#region Prénom !-->
+                             <div id="input" class="form-group input-group">
+                                 <div class="input-group-prepend">
+                                 </div>
+                                 <input name="" class="form-control " placeholder="Prénom" type="text">
+                             </div>
+                             <!--#endregion !-->
 
-                            <!--#region Nom !-->
-                            <div id="input" class="form-group input-group">
-                                <div class="input-group-prepend">
-                                </div>
-                                <input name="" class="form-control " placeholder="Nom" type="text">
-                            </div>
-                            <!--#endregion !-->
+                             <!--#region Nom !-->
+                             <div id="input" class="form-group input-group">
+                                 <div class="input-group-prepend">
+                                 </div>
+                                 <input name="" class="form-control " placeholder="Nom" type="text">
+                             </div>
+                             <!--#endregion !-->
 
-                            <!--#region Pseudo !-->
-                            <div id="input" class="form-group input-group">
-                                <div class="input-group-prepend">
-                                </div>
-                                <input name="" class="form-control " placeholder="Pseudo" type="text">
-                            </div>
-                            <!--#endregion !-->
-                        </div>
+                             <!--#region Pseudo !-->
+                             <div id="input" class="form-group input-group">
+                                 <div class="input-group-prepend">
+                                 </div>
+                                 <input name="" class="form-control " placeholder="Pseudo" type="text">
+                             </div>
+                             <!--#endregion !-->
+                         </div>
 
-                        <div id="input" class="col-sm">
-                            <!--#region Mail !-->
-                            <div class="form-group input-group">
-                                <div class="input-group-prepend">
-                                </div>
-                                <input name="" class="form-control " placeholder="Mail" type="email">
-                            </div>
-                            <!--#endregion !-->
+                         <div id="input" class="col-sm">
+                             <!--#region Mail !-->
+                             <div class="form-group input-group">
+                                 <div class="input-group-prepend">
+                                 </div>
+                                 <input name="" class="form-control " placeholder="Mail" type="email">
+                             </div>
+                             <!--#endregion !-->
 
 
-                            <!--#region MDP !-->
-                            <div id="input" class="form-group input-group">
-                                <div class="input-group-prepend">
-                                </div>
-                                <input class="form-control " placeholder="Create password" type="password">
-                            </div> <!-- form-group// -->
-                            <div id="input" class="form-group input-group">
-                                <div class="input-group-prepend">
-                                </div>
-                                <input class="form-control " placeholder="Repeat password" type="password">
-                            </div>
+                             <!--#region MDP !-->
+                             <div id="input" class="form-group input-group">
+                                 <div class="input-group-prepend">
+                                 </div>
+                                 <input class="form-control " placeholder="Create password" type="password">
+                             </div> <!-- form-group// -->
+                             <div id="input" class="form-group input-group">
+                                 <div class="input-group-prepend">
+                                 </div>
+                                 <input class="form-control " placeholder="Repeat password" type="password">
+                             </div>
 
-                        </div>
-                    </div>
-                    <br>
-                    <!--#endregion !-->
+                         </div>
+                     </div>
+                     <br>
+                     <!--#endregion !-->
 
-                    <!--#region checkbox !-->
-                    <!--<div class="maxl">
-                        Voulez-vous vous abonnez à notre newsletter?</br>
-                        <label class="radio inline">
-                            <input type="radio" name="news" value="yes" checked>
-                            <span>Oui </span>
-                        </label>
-                        <label class="radio inline">
-                            <input type="radio" name="news" value="no">
-                            <span>Non </span>
-                        </label>
-                    </div>
-                    <br>
+                     <!--#region checkbox !-->
+                     <!--<div class="maxl">
+                         Voulez-vous vous abonnez à notre newsletter?</br>
+                         <label class="radio inline">
+                             <input type="radio" name="news" value="yes" checked>
+                             <span>Oui </span>
+                         </label>
+                         <label class="radio inline">
+                             <input type="radio" name="news" value="no">
+                             <span>Non </span>
+                         </label>
+                     </div>
+                     <br>
 
-                    <div class="maxl">
-                        Voulez-vous activez les notifications ?</br>
-                        <label class="radio inline">
-                            <input type="radio" name="notif" value="oui" checked>
-                            <span>Oui </span>
-                        </label>
-                        <label class="radio inline">
-                            <input type="radio" name="notif" value="non">
-                            <span>Non </span>
-                        </label>
-                    </div>-->
-                    <!--#endregion !-->
-                    <br>
+                     <div class="maxl">
+                         Voulez-vous activez les notifications ?</br>
+                         <label class="radio inline">
+                             <input type="radio" name="notif" value="oui" checked>
+                             <span>Oui </span>
+                         </label>
+                         <label class="radio inline">
+                             <input type="radio" name="notif" value="non">
+                             <span>Non </span>
+                         </label>
+                     </div>-->
+                     <!--#endregion !-->
+                     <br>
 
-                    <div class="form-group">
-                        <button id="log" type="submit" class="btn" style="color: white;">Valider</button>
-                    </div>
-                    <!-- <div class="text-center">Vous avez déjà un compte? <a href="">Connectez vous!</a></div>-->
-                </div>
-            </form>
-        </article>
-    </div>#}
+                     <div class="form-group">
+                         <button id="log" type="submit" class="btn" style="color: white;">Valider</button>
+                     </div>
+                     <!-- <div class="text-center">Vous avez déjà un compte? <a href="">Connectez vous!</a></div>-->
+                 </div>
+             </form>
+         </article>
+     </div>#}
     <!--#endregion !-->
 
 
