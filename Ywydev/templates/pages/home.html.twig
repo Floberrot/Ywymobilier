@@ -3,43 +3,38 @@
 {% block title %}Bienvenue!{% endblock %}
 
 {% block body %}
-    <style>
-        body {
-            background: white;
-        }
-
-        h1 {
-            margin-bottom: 30px;
-        }
-
-    </style>
-    <div class="jumbotron bg-light text-center">
-        <h1>YWYMOBILIER</h1>
-        <p>
-            Le projet de Ywimobilier est de faciliter la vie des étudiants à la recherche de logement. Nous avons comme
-            objectif de regrouper
-            de nombreuses demandes de particuliers cherchant des locataires sur la ville de Lyon. Vous n'aures plus qu'a
-            naviguez dans l'onglet offres, de récupérer
-            les informations qui vous semblent importantes, de noter le numéro de téléphone du particulier et le tour
-            est joué !!
-        </p>
-    </div>
-    <div class="container">
-        <h2>Dernieres offres</h2>
-        <div class="row flex">
-            {% for property in properties %}
-            <div class="col-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
-                        </h5>
-                        <p class="card-text">{{ property.city }} ({{ property.cp }})</p>
-                        <p class="text-primary" style="font-weight: bold; font-size: 1.5rem;">{{ property.formattedPrice }}€</p>
-                    </div>
+    <div>
+        <div class="text-center text-accueil">
+            <h1 class="title-base">YWYmobilier</h1>
+            <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
+            <p>
+                Le projet de YWYmobilier est de faciliter la vie des étudiants à la recherche de logement. Nous avons
+                comme objectif de regrouper de nombreuses demandes de particuliers cherchant des locataires sur la ville
+                de Lyon. Vous n'aurez plus qu'a naviguer dans l'onglet offres, de récupérer les informations qui vous
+                semblent importantes, de noter le numéro de téléphone du particulier et le tour est joué !
+            </p>
+        </div>
+        <div class="home-last-offer ">
+            <h2 class="home-last-offer-title">Dernières offres</h2>
+            <div class="row flex">
+                <div class="row row-cols-1 row-cols-md-3">
+                    {% for property in properties %}
+                        <div class="col mb-4">
+                            <div class="card">
+                                <img src="/images/exampl1.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><a
+                                                href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">
+                                            {{ property.title }}</a></h5>
+                                    <p class="card-text"><b>{{ property.price }}€</b></p>
+                                    <small class="text-muted">{{ property.city }} ({{ property.cp }})</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
         </div>
     </div>
+
 {% endblock %}

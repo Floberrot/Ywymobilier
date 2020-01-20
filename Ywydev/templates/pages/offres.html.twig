@@ -3,12 +3,25 @@
 {% block title %}Nos offres!{% endblock %}
 
 {% block body %}
-    <style>
-        body {
-            background: white;
-        }
-    </style>
-    <div class="jumbotron text-center">
-        <h1>LES OFFRES ARRIVENT BIENTOT</h1>
+    <h1 class="title-base">Voici les appartements disponibles</h1>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <div class="row row-cols-1 row-cols-md-3">
+        {% for property in properties %}
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="/images/exampl1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><a
+                                    href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">
+                                {{ property.title }}</a></h5>
+                        <p class="card-text"><b>{{ property.price }}€</b></p>
+                        <small class="text-muted">{{ property.city }} ({{ property.cp }})</small></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
