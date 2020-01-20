@@ -31,6 +31,7 @@ body {
 
 }
 
+
 #bienvenue {
     font-size: 12px;
     margin-bottom: 30px;
@@ -69,6 +70,7 @@ body {
 
 #title {
     color: deepskyblue;
+
     margin-bottom: 40px;
     font-weight: bold;
 }
@@ -99,6 +101,8 @@ body {
 .card-text {
     font-style: italic;
 }
+
+
 
 .control {
     display: block;
@@ -157,3 +161,4 @@ body {
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
+
