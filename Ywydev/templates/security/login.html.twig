@@ -9,195 +9,32 @@
               crossorigin="anonymous">
     </head>
 
-
-
+<div class="text-center">
+    <br>
+    <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
+    <br>
     <!--#region Connexion User !  -->
 
     <div class="container col-md-5">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey | trans(error.messageData, 'security') }}</div>
         {% endif %}
-
-        <h1 class="title-base text-center">CONNEXION</h1>
-
         <form id="form_connexion" action="{{ path('app_login') }}" method="post">
+            <h1 class="title-base text-center inscription">Connexion</h1>
             <div class="form-group">
-                <input type="text" id="username" name="_username" class="form-control rounded-pill" placeholder="Nom d'utilisateur" autofocus value="{{ last_username }}">
-           </div>
-{#            <div class="form-group">#}
-{#                <input type="text" id="email" name="_email" placeholder="Adresse mail" class="form-control rounded-pill">#}
-{#            </div>#}
-            <div class="form-group">
-                <input type="password" id="password" name="_password"  placeholder="Mot de passe" class="form-control rounded-pill">
+                <label class="text_form">Nom d'utilisateur</label>
+                <input type="text" id="username" name="_username" class="form-control rounded-pill" autofocus
+                       value="{{ last_username }}">
             </div>
-            <button id="but_ins" type="submit" class="btn text-center">Se connecter</button>
+            <div class="form-group">
+                <label class="text_form">Mot de passe</label>
+                <input type="password" id="password" name="_password"
+                       class="form-control rounded-pill">
+            </div>
+            <button id="log" type="submit" class="btn ">Se connecter</button>
+            <p class="no-account"> Vous n'avez pas de compte? <a href="{{ path('inscription') }}" class="links">Inscrivez-vous!</a></p>
         </form>
     </div>
-
-    {#<div id="connexion" class="card bg-dark">
-        <article id="article_connexion" class="card-body mx-auto">
-            <h1 id="title" class="card-title mt-3 text-center">Connexion</h1>
-            <form method="post">
-
-
-
-                {% if app.user %}
-                    <div class="mb-3">
-                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-                    </div>
-                {% endif %}
-                <div class="container" style="width: 324px;">
-                    <div class="row">
-
-                        <div class="form-group input-group">
-                            <input type="text" name="_username" id="username" class="form-control "
-                                   placeholder="Pseudo" value="{{ last_username }}" autofocus>
-                        </div>
-
-
-                        <div class="form-group input-group">
-                            <input type="password" name="_password" id="password" class="form-control "
-                                   placeholder="Mot de passe">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <input type="hidden" name="_csrf_token"
-                               value="{{ csrf_token('authenticate') }}"
-                        >
-                        <button class="btn " type="submit" name="button" style="color: white">Mot de passe oublié ?</button>
-
-
-
-                    </div>
-                    <div id="buttons">
-                        <div class="cont">
-                            <div class="row">
-                                <a href="#inscription" id="but_ins" class="btn col-md">
-                                    S'inscrire
-                                </a>
-                                <button id="log" class="btn col-md" type="submit">
-                                    Se connecter
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-            </form>
-        </article>
-
-
-    </div>#}
-    <!--#endregion -->
-
-
-    {# <!--#region Inscription User !-->
-     <div id="inscription" class="card bg-dark">
-
-
-         <article id="article_ins" class="card-body mx-auto">
-             <h1 id="title" class="card-title mt-3 text-center">Inscription</h1>
-
-             <p id="bienvenue" class="text-light text-center">La futur application pour aider les étudiants à trouver un logement.
-                 Ywymobilier est sensé regrouper les offres des particuliers pour trouver des locataires (en priotité a des prix abordable pour les étudiants).
-                 N'attendez plus, inscrivez-vous!</p>
-
-             <form>
-                 <div class="container">
-                     <div class="row">
-                         <div class="col-sm">
-                             <!--#region Prénom !-->
-                             <div id="input" class="form-group input-group">
-                                 <div class="input-group-prepend">
-                                 </div>
-                                 <input name="" class="form-control " placeholder="Prénom" type="text">
-                             </div>
-                             <!--#endregion !-->
-
-                             <!--#region Nom !-->
-                             <div id="input" class="form-group input-group">
-                                 <div class="input-group-prepend">
-                                 </div>
-                                 <input name="" class="form-control " placeholder="Nom" type="text">
-                             </div>
-                             <!--#endregion !-->
-
-                             <!--#region Pseudo !-->
-                             <div id="input" class="form-group input-group">
-                                 <div class="input-group-prepend">
-                                 </div>
-                                 <input name="" class="form-control " placeholder="Pseudo" type="text">
-                             </div>
-                             <!--#endregion !-->
-                         </div>
-
-                         <div id="input" class="col-sm">
-                             <!--#region Mail !-->
-                             <div class="form-group input-group">
-                                 <div class="input-group-prepend">
-                                 </div>
-                                 <input name="" class="form-control " placeholder="Mail" type="email">
-                             </div>
-                             <!--#endregion !-->
-
-
-                             <!--#region MDP !-->
-                             <div id="input" class="form-group input-group">
-                                 <div class="input-group-prepend">
-                                 </div>
-                                 <input class="form-control " placeholder="Create password" type="password">
-                             </div> <!-- form-group// -->
-                             <div id="input" class="form-group input-group">
-                                 <div class="input-group-prepend">
-                                 </div>
-                                 <input class="form-control " placeholder="Repeat password" type="password">
-                             </div>
-
-                         </div>
-                     </div>
-                     <br>
-                     <!--#endregion !-->
-
-                     <!--#region checkbox !-->
-                     <!--<div class="maxl">
-                         Voulez-vous vous abonnez à notre newsletter?</br>
-                         <label class="radio inline">
-                             <input type="radio" name="news" value="yes" checked>
-                             <span>Oui </span>
-                         </label>
-                         <label class="radio inline">
-                             <input type="radio" name="news" value="no">
-                             <span>Non </span>
-                         </label>
-                     </div>
-                     <br>
-
-                     <div class="maxl">
-                         Voulez-vous activez les notifications ?</br>
-                         <label class="radio inline">
-                             <input type="radio" name="notif" value="oui" checked>
-                             <span>Oui </span>
-                         </label>
-                         <label class="radio inline">
-                             <input type="radio" name="notif" value="non">
-                             <span>Non </span>
-                         </label>
-                     </div>-->
-                     <!--#endregion !-->
-                     <br>
-
-                     <div class="form-group">
-                         <button id="log" type="submit" class="btn" style="color: white;">Valider</button>
-                     </div>
-                     <!-- <div class="text-center">Vous avez déjà un compte? <a href="">Connectez vous!</a></div>-->
-                 </div>
-             </form>
-         </article>
-     </div>#}
-    <!--#endregion !-->
-
-
+</div>
+    <!-- endregion -->
 {% endblock %}
