@@ -10,7 +10,6 @@ new Vue({
             return this.properties
                 .filter(property => {
                     return !this.searchText
-                        || (property.title).split(' ')
                         || (property.title).toLowerCase().includes(this.searchText.toLowerCase());
                 })
                 // .filter(user => {
