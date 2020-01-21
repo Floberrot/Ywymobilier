@@ -33,7 +33,6 @@ class UserType extends AbstractType
                     ],
 
             ])
-            ->add('dob', \Symfony\Component\Form\Extension\Core\Type\DateTimeType::class)
         ;
     }
 
