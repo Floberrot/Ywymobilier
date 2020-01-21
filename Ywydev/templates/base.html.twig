@@ -72,11 +72,13 @@
                 <a class="nav-link " href="{{ path('Offres') }}">Nos offres <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="{{ path('about') }}">About</a>
             </li>
+            {% if app.user == true %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('admin.property.index') }}">Administration</a>
             </li>
+            {% endif %}
 
             {% if app.user == false %}
 
