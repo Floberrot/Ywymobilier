@@ -33,6 +33,17 @@ class User implements UserInterface, \Serializable
      */
     private $username;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $roles;
+
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dob;
+
 
 
     public function getId(): ?int
@@ -75,7 +86,7 @@ class User implements UserInterface, \Serializable
         return $this;
     }
     public function getRoles(){
-        return ['ROLES_ADMIN'];
+        return ['Propriétaire', 'Etudiant'];
     }
 
     /**
@@ -105,7 +116,9 @@ return null;
           $this->id,
           $this->username,
           $this->email,
-          $this->password
+          $this->password,
+            $this->dob,
+            $this->roles
       ]);
     }
 
@@ -124,13 +137,34 @@ return null;
             $this->id,
             $this->username,
             $this->email,
-            $this->password
+            $this->password,
+            $this->roles,
+         $this->dob,
             ) = unserialize($serialized, ['allowed_classes'=>false]);
     }
 
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function setRoles(bool $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getDob(): ?\DateTimeInterface
+    {
+        return $this->dob;
+    }
+
+    public function setDob(\DateTimeInterface $dob): self
+    {
+        $this->dob = $dob;
 
         return $this;
     }
