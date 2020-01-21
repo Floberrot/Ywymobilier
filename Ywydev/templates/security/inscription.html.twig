@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'inscrire{% endblock %}
+
+{% block body %}
+
+    <div class="container text-center">
+
+
+        <h1 class="title-base text-center">INSCRIPTION</h1>
+{#        <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">#}
+        <p>YWYmobilier permet aux étudiants de chercher simplement et rapidement des demandes de locataires par des particuliers. Si vous avez du mal
+        à trouver un logement, cette application est faites pour vous!<br>
+        De plus, nous permettons, si vous êtes particulier et que vous souhaitez trouver un locataire, vous pouvez sur*
+            cette même application poser des annonces pour voitre logement</p>
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-4">{{ form_row(form.username) }}</div>
+            <div class="col-md-4">{{ form_row(form.email) }}</div>
+            <div class="col-md-4">{{ form_row(form.password) }}</div>
+        </div>
+        <button class="btn btn-success">{{ button|default('S\'inscrire') }}</button>
+        {{ form_end(form) }}
+    </div>
+
+
+{% endblock %}
