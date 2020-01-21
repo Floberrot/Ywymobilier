@@ -1,5 +1,7 @@
 body {
     background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 .menu-btn-connexion {
