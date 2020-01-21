@@ -9,7 +9,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 class OfferController extends AbstractController
 {
@@ -17,6 +21,7 @@ class OfferController extends AbstractController
      * @var PropertyRepository
      */
     private $repository;
+
     /**
      * @var \Doctrine\Common\Persistence\ObjectManager
      */
@@ -38,6 +43,25 @@ class OfferController extends AbstractController
         return $this->render('/pages/offres.html.twig', [
             'properties' => $properties,
         ]);
+
+    }
+
+    /**
+     * @Route ("/offres/get",name="getOffer")
+     * @param PropertyRepository $repository
+     * @return Response
+     */
+    public function getOffer(PropertyRepository $repository): Response
+    {
+        $properties = $repository->findLatest();
+        $encoders = array(new JsonEncoder());
+        $normalizers = array(new ObjectNormalizer());
+
+        $serializer = new Serializer($normalizers, $encoders);
+        $productSerialized = $serializer->serialize($properties, 'json');
+
+       return new Response($productSerialized, Response::HTTP_OK, ['Content-Type' => 'application/json']);
+
     }
 
 //    /**
@@ -56,13 +80,13 @@ class OfferController extends AbstractController
      * @param string $slug
      * @return Response
      */
-    public function show(\App\Entity\Property $property, string $slug):Response
+    public function show(\App\Entity\Property $property, string $slug): Response
     {
         if ($property->getSlug() !== $slug) {
-           return $this->redirectToRoute('property.show', [
+            return $this->redirectToRoute('property.show', [
                 'id' => $property->getId(),
                 'slug' => $property->getSlug()
-            ],301);
+            ], 301);
         }
         return $this->render('/pages/show.html.twig', [
             'property' => $property,
