@@ -86,7 +86,7 @@ class User implements UserInterface, \Serializable
         return $this;
     }
     public function getRoles(){
-        return ['Propriétaire', 'Etudiant'];
+        return $this->roles;
     }
 
     /**
@@ -150,7 +150,7 @@ return null;
         return $this;
     }
 
-    public function setRoles(bool $roles): self
+    public function setRoles(string $roles): self
     {
         $this->roles = $roles;
 
