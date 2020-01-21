@@ -33,6 +33,8 @@ class User implements UserInterface, \Serializable
      */
     private $username;
 
+
+
     public function getId(): ?int
     {
         return $this->id;
