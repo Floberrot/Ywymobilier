@@ -1,5 +1,7 @@
 body {
     background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 .menu-btn-connexion {
@@ -31,6 +33,15 @@ body {
 
 }
 
+#form_connexion{
+
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 50px;
+    background: #343a40;
+    margin-bottom: 500px;
+
+}
 
 #bienvenue {
     font-size: 12px;
@@ -161,4 +172,25 @@ body {
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
+.pagewrap {max-width: 100%; height: 100vh; margin: 0 auto; display: flex; justify-content: center; align-items: center;}
+
+.form {
+    width: 90%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    background-color: #ecedee;
+    border-radius: 5px;
+}
+
+
+.__title {
+     margin-bottom: 1em;
+     position: relative;
+     z-index: 2;
+     background: transparent;
+     text-transform: uppercase;
+ }
 
