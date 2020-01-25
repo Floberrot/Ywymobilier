@@ -4,9 +4,44 @@
 
 {% block body %}
 
+    <div class="container text-center">
+        <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
+        <H1 class="title-base text-center">C'EST QUOI YWY?</H1>
+        <p class="text_about">Une application qui regroupe des offres immobilières. Uniquement des location pour ETUDIANTS</p>
+    </div>
+    <div>
+        <H1 class="title-base text-center">POURQUOI?</H1>
+        <p class="text_about">Nous avons décidé de créer YWYmobilier pour une bonne raison : il est dur pour un étudiant de trouver un logement.</p>
 
-<div class="example-wrapper">
-    <h1 class="title-base ">A propos de YWY</h1>
+           <p class="text_about"> Trouver un logement pour un nouvel étudiant est souvent source de stress. Nous voudrions enlever ce stress car les études
+            le sont déjà bien assez. Pour ça, nous avons décider de créer cette application pour permettre aux étudiants et aux propriétaires
+            de se contacter et de trouver un terrain d'entente rapidement.</p>
+
+
+            <p class="text_about">Notre objectif est claire: <br>
+            - Simplifier la recherche des étudiants <br>
+            - Leur fournir un logement dans les plus brefs délais <br>
+            - Permettre aux particuliers de cibler leur futur locataire : des ETUDIANTS!</p>
+    </div>
+<div class="container text-center team" style="">
+
+    <h1 class="title-base">QUI EST DERRIERE CE PROJET ?</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Florian Berrot</h2>
+            <img class="team_img" src="/images/flo.jpg" alt="Florian BERROT">
+            <p class="text_about">Développeur - Etudiant à Ynov Campus</p>
+        </div>
+        <div class="col-md-6">
+            <h2>Steven Copy</h2>
+            <img class="team_img" src="/images/sti.png" alt="Steven COPY">
+            <p class="text_about">Développeur - Etudiant à Ynov Campus</p>
+
+        </div>
+    </div>
+    <div class="container">
+        <h2>Envie de nous contacter ? <a href="{{ path('contact') }}">Cliquez-ici</a></h2>
+    </div>
 
 </div>
 {% endblock %}

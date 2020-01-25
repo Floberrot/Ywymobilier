@@ -7,6 +7,26 @@ body {
 .menu-btn-connexion {
     align-items: flex-end;
 }
+.team{
+    width: 100%;
+    padding: 34px;
+    }
+.team_img{
+    border:10px solid darkgray;
+    border-radius: 100px;
+    filter: grayscale(1) ;
+    width: 200px;
+    height: 220px;
+    margin: 10px 0 20px 0;
+
+}
+.text_about{
+    font-size: 1.4em;
+}
+.text_about:first-letter{
+    font-size: 1.7em;
+    color: deepskyblue;
+}
 
 
 .title-base {

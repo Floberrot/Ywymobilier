@@ -38,6 +38,21 @@ class User implements UserInterface, \Serializable
      */
     private $roles;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $first_name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $last_name;
+
+    /**
+     * @ORM\Column(type="integer", length=10)
+     */
+    private $num;
+
 
 
 
@@ -66,7 +81,7 @@ class User implements UserInterface, \Serializable
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
 
@@ -82,8 +97,45 @@ class User implements UserInterface, \Serializable
         return $this;
     }
     public function getRoles(){
-        return $this->roles;
+        return array($this->roles);
     }
+
+    public function getFirstName(): string
+    {
+        return (string)$this->first_name;
+    }
+
+    public function getLastName(): string
+    {
+        return (string)$this->last_name;
+    }
+
+    public function getNum(): ?int
+    {
+        return $this->num;
+    }
+
+    public function setFirstName(string $first_name): self
+    {
+        $this->first_name = $first_name;
+
+        return $this;
+    }
+
+    public function setLastName(string $last_name): self
+    {
+        $this->last_name = $last_name;
+
+        return $this;
+    }
+
+    public function setNum(string $num): self
+    {
+        $this->num = $num;
+
+        return $this;
+    }
+
 
     /**
      * @see UserInterface
@@ -113,7 +165,6 @@ return null;
           $this->username,
           $this->email,
           $this->password,
-            $this->dob,
             $this->roles
       ]);
     }
@@ -135,7 +186,6 @@ return null;
             $this->email,
             $this->password,
             $this->roles,
-         $this->dob,
             ) = unserialize($serialized, ['allowed_classes'=>false]);
     }
 

@@ -22,10 +22,17 @@
             <br>
             <div class="col-md text_form">{{ form_label(form.email, 'Adresse mail ') }}{{ form_widget(form.email) }}</div>
             <br>
+            <div class="col-md text_form">{{ form_label(form.first_name, 'Prénom : ') }}{{ form_widget(form.first_name) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.last_name, 'Nom : ') }}{{ form_widget(form.last_name) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.num, 'VNuméro de téléphone : ') }}{{ form_widget(form.num) }}</div>
+            <br>
             <div class="col-md text_form">{{ form_label(form.password, 'Mot de passe ') }}{{ form_widget(form.password) }}</div>
             <br>
             <div class="col-md text_form">{{ form_label(form.roles, 'Vous êtes : ') }}{{ form_widget(form.roles) }}</div>
             <br>
+
 
             <button id="log" class="btn ">{{ button|default('S\'inscrire') }}</button>
         </div>
