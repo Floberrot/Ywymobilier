@@ -18,7 +18,7 @@ class ContactController extends AbstractController
 {
 
     /**
-     * @Route("/about/contact", name="contact")
+     * @Route("contact", name="contact")
      */
     public function index()
     {
