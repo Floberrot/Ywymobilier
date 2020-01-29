@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+
+    <div class="container text-center">
+
+
+    <br>
+    <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
+
+           {{form_start(form)}}
+        <div id="form_connexion" class="container col-md-5">
+            <h1 class="title-base text-center inscription">CONTACTEZ-NOUS</h1>
+            <div class="col-md text_form">{{ form_label(form.name, 'Votre prénom') }}{{ form_widget(form.name) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.email, 'Adresse mail ') }}{{ form_widget(form.email) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.subject, 'Sujet de votre message ?') }}{{ form_widget(form.subject) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.message, 'Votre message') }}{{ form_widget(form.message) }}</div>
+            <br>
+            <button id="log" class="btn ">{{ button|default('Envoyer') }}</button>
+        </div>
+    </div>
+
+    {{form_end(form)}}
+{% endblock %}

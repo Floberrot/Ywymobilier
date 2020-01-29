@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+    </head>
+
+<div class="text-center">
+    <br>
+    <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
+    <br>
+    <!--#region Connexion User !  -->
+
+    <div class="container col-md-5">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey | trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        <form id="form_connexion" action="{{ path('app_login') }}" method="post">
+            <h1 class="title-base text-center inscription">Connexion</h1>
+            <div class="form-group">
+                <label class="text_form">Nom d'utilisateur</label>
+                <input type="text" id="username" name="_username" class="form-control rounded-pill" autofocus
+                       value="{{ last_username }}">
+            </div>
+            <div class="form-group">
+                <label class="text_form">Mot de passe</label>
+                <input type="password" id="password" name="_password"
+                       class="form-control rounded-pill">
+            </div>
+            <button id="log" type="submit" class="btn ">Se connecter</button>
+            <p class="no-account"> Vous n'avez pas de compte? <a href="{{ path('inscription') }}" class="links">Inscrivez-vous!</a></p>
+        </form>
+    </div>
+</div>
+    <!-- endregion -->
+{% endblock %}
