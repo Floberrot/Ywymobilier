@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\PropertyRepository;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ObjectManager;
 use phpDocumentor\Reflection\DocBlock\Tags\Property;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,11 +38,14 @@ class OfferController extends AbstractController
      * @param PropertyRepository $repository
      * @return Response
      */
-    public function index(PropertyRepository $repository): Response
+    public function index(PropertyRepository $repository, UserRepository $userRepository): Response
     {
+
+        $user = $userRepository->findAll();
         $properties = $repository->findLatest();
         return $this->render('/pages/offres.html.twig', [
             'properties' => $properties,
+            'user' =>$user
         ]);
 
     }

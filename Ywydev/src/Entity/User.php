@@ -33,10 +33,6 @@ class User implements UserInterface, \Serializable
      */
     private $username;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $roles;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -52,6 +48,11 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="integer", length=10)
      */
     private $num;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $roles = [];
 
 
 
@@ -96,9 +97,7 @@ class User implements UserInterface, \Serializable
 
         return $this;
     }
-    public function getRoles(){
-        return array($this->roles);
-    }
+
 
     public function getFirstName(): string
     {
@@ -185,7 +184,7 @@ return null;
             $this->username,
             $this->email,
             $this->password,
-            $this->roles,
+            $this->roles
             ) = unserialize($serialized, ['allowed_classes'=>false]);
     }
 
@@ -196,7 +195,12 @@ return null;
         return $this;
     }
 
-    public function setRoles(string $roles): self
+    public function getRoles(): ?array
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
