@@ -23,13 +23,9 @@ class UserType extends AbstractType
             ->add('password', PasswordType::class)
             ->add('username')
             ->add('roles', ChoiceType::class,array(
-                'attr' => array(
-                    'class' => 'form-control',
-                    'required' => false,
-                ),
-                'multiple' => false,
+                'multiple' => true,
                 'choices' => [
-                    'Propriétaire' => 'Propriétaire',
+                    'Propriétaire' => 'Proprietaire',
                     'Etudiant' => 'Etudiant',
                 ]
             ))
