@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Form\PropertyType;
+use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\Types\AbstractList;
@@ -38,12 +39,15 @@ class AdminPropertyController extends AbstractController
 
     /**
      * @\Symfony\Component\Routing\Annotation\Route("/admin", name="admin.property.index")
+     * @param UserRepository $userRepository
      * @return Response
      */
-    public function index(): Response
+    public function index(UserRepository $userRepository): Response
     {
+
+        $user = $userRepository->findAll();
         $properties = $this->repository->findAll();
-        return $this->render('admin/property/index.html.twig', compact('properties'));
+        return $this->render('admin/property/index.html.twig',['user'=>$user ]);
     }
 
 
