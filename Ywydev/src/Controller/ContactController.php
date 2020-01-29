@@ -4,52 +4,62 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Repository\ContactRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
-use PhpParser\Builder\Class_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
 {
-
     /**
-     * @Route("contact", name="contact")
+     * @var ContactRepository
      */
-    public function index()
-    {
-        return $this->render('pages/contact.html.twig', [
-            'controller_name' => 'ContactController',
-        ]);
-    }
-
+    private $repository;
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     private $em;
 
-
     /**
-     * ContactController constructor.
+     * AdminController constructor.
+     * @param ContactRepository $repository
      * @param EntityManagerInterface $em
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(ContactRepository $repository, EntityManagerInterface $em)
     {
+        $this->repository = $repository;
         $this->em = $em;
     }
 
     /**
-     * @param Request $request
+     * @\Symfony\Component\Routing\Annotation\Route("/contact", name="contact")
+     * @param UserRepository $userRepository
      * @return Response
-     * @throws ORMException
-     * @throws OptimisticLockException
      */
-    public function new(Request $request)
+    public function index(UserRepository $userRepository)
     {
+
+        $user = $userRepository->findAll();
+        return $this->render('pages/contact.html.twig', [
+            'controller_name' => 'ContactController',
+            'user' => $user
+        ]);
+    }
+
+
+    /**
+     * @\Symfony\Component\Routing\Annotation\Route("/contact", name="contact")
+     * @param Request $request
+     * @param UserRepository $userRepository
+     * @return Response
+     */
+    public function new (Request $request, UserRepository $userRepository): Response  {
+
+        $user = $userRepository->findAll();
 
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -58,12 +68,14 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->persist($contact);
             $this->em->flush();
-            return $this->redirectToRoute('/pages/about.html.index');
+            return $this->redirectToRoute('about');
 
         }
-        return $this->render('templates/pages/about.html.index', [
+        return $this->render('/pages/contact.html.twig', [
             'property' => $contact,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
+
     }
 }

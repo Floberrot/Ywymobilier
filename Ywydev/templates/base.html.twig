@@ -74,11 +74,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('about') }}">A propos d'YWY</a>
             </li>
-            {% if app.user == true %}
+            {% for users in user %}
+
+
+                {% if app.user %}
+            {% if 'Proprietaire' in app.user.roles %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('admin.property.index') }}">Administration</a>
                 </li>
             {% endif %}
+
+                {% endif %}
+
+            {% endfor%}
 
 
 
@@ -94,10 +102,6 @@
             </li>
             {% endif %}
         </ul>
-        {#        <form class="form-inline my-2 my-lg-0">#}
-        {#            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">#}
-        {#            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
-        {#        </form>#}
         {% if app.user %}
             <ul class="navbar-nav">
                 <li class="nav-item">
