@@ -97,7 +97,12 @@ class User implements UserInterface, \Serializable
         return $this;
     }
     public function getRoles(){
-        return array($this->roles);
+        $roles = $this->roles;
+        if ($roles != NULL) {
+            return explode(" ",$roles);
+        }else {
+            return $this->roles;
+        }
     }
 
     public function getFirstName(): string
