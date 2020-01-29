@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="/images/logo_noir.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% block description %}
+        <meta name="description" content="">
+    {% endblock %}
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    {% block new_keywords %}
+        <meta name="new_keywords" content="">
+    {% endblock %}
+    {% block keywords %}
+        <meta name="keywords" content="">
+    {% endblock %}
+    <meta name="geo.placename" content="69000 LYON France">
+    <meta property="og:type" content="website">
+    {% block og_title %}
+        <meta property="og:title" content="">
+    {% endblock %}
+    {% block og_url %}
+        <meta property="og:url" content="">
+    {% endblock %}
+    <meta property="og:image" content="">
+    <meta property="og:image:secure_url" content="">
+    <meta property="og:image:type" content="i">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:alt" content="">
+    {% block og_description %}
+        <meta property="og:description" content="!">
+    {% endblock %}
+    <meta property="og:site_name" content="">
+    <meta property="og:determiner" content="">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Google Analytics -->
+    <!-- <script>
+        window.ga = window.ga || function() {
+            (ga.q = ga.q || []).push(arguments)
+        };
+        ga.l = +new Date;
+        ga('create', '', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script> -->
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ path('Home') }}"><img class="nav-logo" src="/images/logo_noir.png"
+                                                           alt="Logo du site YWYmobilier"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar" id="navbarSupportedContent">
+
+        <ul class="navbar-nav navbar-links">
+            <li class="nav-item">
+                <a class="nav-link " href="{{ path('Offres') }}">Nos offres <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('about') }}">A propos d'YWY</a>
+            </li>
+            {% for users in user %}
+
+
+                {% if app.user %}
+            {% if 'Proprietaire' in app.user.roles %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin.property.index') }}">Administration</a>
+                </li>
+            {% endif %}
+
+                {% endif %}
+
+            {% endfor%}
+
+
+
+            {% if app.user == false %}
+
+        </ul>
+        <ul class="navbar-nav float-lg-right">
+            {% if app.request.get('_route') == 'Offres' %}
+
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link connexion" href="{{ path('app_login') }}">Connexion</a>
+            </li>
+            {% endif %}
+        </ul>
+        {% if app.user %}
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="{{ path('logout') }}" class="nav-link">Se deconnecter</a>
+                </li>
+            </ul>
+        {% endif %}
+
+    </div>
+</nav>
+
+<div id="app" class="container">
+    {% block body %}{% endblock %}
+</div>
+<footer>
+    {% block footer %}{% endblock %}
+</footer>
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    {{ encore_entry_script_tags('app') }}
+    <!-- Renders app.js & a webpack runtime.js file
+        <script src="/build/runtime.js"></script>
+        <script src="/build/app.js"></script> -->
+
+{% endblock %}
+</body>
+
+</html>
