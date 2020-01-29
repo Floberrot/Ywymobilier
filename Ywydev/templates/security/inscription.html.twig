@@ -7,20 +7,41 @@
     <div class="container text-center">
 
 
-        <h1 class="title-base text-center">INSCRIPTION</h1>
-{#        <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">#}
+        <br>
+       <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
         <p>YWYmobilier permet aux étudiants de chercher simplement et rapidement des demandes de locataires par des particuliers. Si vous avez du mal
         à trouver un logement, cette application est faites pour vous!<br>
         De plus, nous permettons, si vous êtes particulier et que vous souhaitez trouver un locataire, vous pouvez sur*
             cette même application poser des annonces pour voitre logement</p>
+        <br>
+
         {{ form_start(form) }}
-        <div class="row">
-            <div class="col-md-4">{{ form_row(form.username) }}</div>
-            <div class="col-md-4">{{ form_row(form.email) }}</div>
-            <div class="col-md-4">{{ form_row(form.password) }}</div>
+        <div id="form_connexion" class="container col-md-5">
+            <h1 class="title-base text-center inscription">Inscription</h1>
+            <div class="col-md text_form">{{ form_label(form.username, 'Nom d\'utilisateur') }}{{ form_widget(form.username) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.email, 'Adresse mail ') }}{{ form_widget(form.email) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.first_name, 'Prénom : ') }}{{ form_widget(form.first_name) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.last_name, 'Nom : ') }}{{ form_widget(form.last_name) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.num, 'VNuméro de téléphone : ') }}{{ form_widget(form.num) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.password, 'Mot de passe ') }}{{ form_widget(form.password) }}</div>
+            <br>
+            <div class="col-md text_form">{{ form_label(form.roles, 'Vous êtes : ') }}{{ form_widget(form.roles) }}</div>
+            <br>
+
+
+            <button id="log" class="btn ">{{ button|default('S\'inscrire') }}</button>
         </div>
-        <button class="btn btn-success">{{ button|default('S\'inscrire') }}</button>
-        {{ form_end(form) }}
+
+
+
+            {{ form_end(form) }}
+
+
     </div>
 
 

@@ -31,10 +31,7 @@ class UserDetails
         return $this->id;
     }
 
-    public function getRoles(): ?bool
-    {
-        return $this->roles;
-    }
+
 
     public function setRoles(bool $roles): self
     {
