@@ -54,9 +54,12 @@ class ContactController extends AbstractController
     /**
      * @\Symfony\Component\Routing\Annotation\Route("/contact", name="contact")
      * @param Request $request
+     * @param UserRepository $userRepository
      * @return Response
      */
-    public function new (Request $request): Response  {
+    public function new (Request $request, UserRepository $userRepository): Response  {
+
+        $user = $userRepository->findAll();
 
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -70,7 +73,8 @@ class ContactController extends AbstractController
         }
         return $this->render('/pages/contact.html.twig', [
             'property' => $contact,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ]);
 
     }
