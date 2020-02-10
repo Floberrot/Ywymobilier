@@ -74,7 +74,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('about') }}">A propos d'YWY</a>
             </li>
-            {% for users in user %}
 
 
                 {% if app.user %}
@@ -83,10 +82,7 @@
                     <a class="nav-link" href="{{ path('admin.property.index') }}">Administration</a>
                 </li>
             {% endif %}
-
                 {% endif %}
-
-            {% endfor%}
 
 
 

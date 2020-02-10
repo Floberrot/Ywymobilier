@@ -47,7 +47,9 @@ class AdminPropertyController extends AbstractController
 
         $user = $userRepository->findAll();
         $properties = $this->repository->findAll();
-        return $this->render('admin/property/index.html.twig',['user'=>$user ]);
+        return $this->render('admin/property/index.html.twig',
+            ['user'=>$user,
+                'property'=>$properties]);
     }
 
 
