@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Repository\PropertyRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ObjectManager;
@@ -95,6 +96,7 @@ class OfferController extends AbstractController
         return $this->render('/pages/show.html.twig', [
             'property' => $property,
             'current_menu' => 'properties',
+            'user'=> User::class
         ]);
     }
 
