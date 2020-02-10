@@ -1,0 +1,402 @@
+﻿---------------------------------------------------------------------------------------------------------
+|													|
+|						Berrot Florian | florian.berrot@ynov.com					|
+|													|
+---------------------------------------------------------------------------------------------------------
+
+
+Requêtes simples :
+
+1. Liste de toutes les stations dont la commune est VILLEURBANNE
+
+Requête : db.velov.find({"properties.commune":"VILLEURBANNE"},{_id:1 , "properties.name":1 , "properties.commune":1 })
+
+
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b1"), "properties" : { "name" : "Charpennes", "commune" : "VILLEURBANNE" } }.limit(10)
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b4"), "properties" : { "name" : "Place de la Reconnaissance", "commune" : "VILLEURBANNE" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28c1"), "properties" : { "name" : "Salengro / 8 mai 1945", "commune" : "VILLEURBANNE" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28c5"), "properties" : { "name" : "Charmettes / Zola", "commune" : "VILLEURBANNE" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28cc"), "properties" : { "name" : "Colin /Ottavi", "commune" : "VILLEURBANNE" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28d1"), "properties" : { "name" : "Anatole France / Barbusse", "commune" : "VILLEURBANNE" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28e6"), "properties" : { "name" : "Pixel", "commune" : "VILLEURBANNE" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28e9"), "properties" : { "name" : "Montgolfier / Ch�teau Gaillard", "commune" : "VILLEURBANNE" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ea"), "properties" : { "name" : "Maisons Neuves", "commune" : "VILLEURBANNE" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ef"), "properties" : { "name" : "Condorcet / Galline", "commune" : "VILLEURBANNE" } }
+
+----------------------------------------------------------------------------------------------------------
+
+2. Lister toutes les stations qui ne sont pas à VILLEURBANNE
+
+Requête : db.velov.find({"properties.commune":{$ne:"VILLEURBANNE"}},{_id:1 , "properties.name":1 , "properties.commune":1 }).limit(10)
+
+
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ac"), "properties" : { "name" : "Sédaillan / Naviguation", "commune" : "Lyon 9 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ad"), "properties" : { "name" : "Pont Masaryk", "commune" : "Lyon 4 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ae"), "properties" : { "name" : "Jean Jaurès / Guillotière", "commune" : "Lyon 7 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28af"), "properties" : { "name" : "Cité Int. / Palais des Congrès", "commune" : "Lyon 6 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b0"), "properties" : { "name" : "Gailleton", "commune" : "Lyon 2 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b2"), "properties" : { "name" : "Augagneur", "commune" : "Lyon 3 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b3"), "properties" : { "name" : "Masaryk / Saint Cyr", "commune" : "Lyon 9 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b5"), "properties" : { "name" : "Sully / Garibaldi", "commune" : "Lyon 6 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b6"), "properties" : { "name" : "Gambetta / Jusserand", "commune" : "Lyon 3 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b7"), "properties" : { "name" : "Saint-Clair", "commune" : "CALUIRE-ET-CUIRE" } }
+
+----------------------------------------------------------------------------------------------------------
+
+3. Liste des stations qui n'ont pas de seconde adresse (adress2 vide)
+
+Requête : db.velov.find({"properties.address2" :""},{_id:1 ,"properties.address2":1, "properties.name":1 , "properties.commune":1 }).limit(10)
+
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ac"), "properties" : { "name" : "Sédaillan / Naviguation", "commune" : "Lyon 9 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ad"), "properties" : { "name" : "Pont Masaryk", "commune" : "Lyon 4 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ae"), "properties" : { "name" : "Jean Jaurès / Guillotière", "commune" : "Lyon 7 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28af"), "properties" : { "name" : "Cité Int. / Palais des Congrès", "commune" : "Lyon 6 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b0"), "properties" : { "name" : "Gailleton", "commune" : "Lyon 2 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b1"), "properties" : { "name" : "Charpennes", "commune" : "VILLEURBANNE" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b2"), "properties" : { "name" : "Augagneur", "commune" : "Lyon 3 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b3"), "properties" : { "name" : "Masaryk / Saint Cyr", "commune" : "Lyon 9 ème" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b4"), "properties" : { "name" : "Place de la Reconnaissance", "commune" : "VILLEURBANNE" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b5"), "properties" : { "name" : "Sully / Garibaldi", "commune" : "Lyon 6 ème" } }
+
+----------------------------------------------------------------------------------------------------------
+
+4. Nombre de stations dont la seconde adresse a une valeur
+
+Requête : db.velov.count({"properties.address2" : {$ne : ""}})
+ 
+163
+
+----------------------------------------------------------------------------------------------------------
+5. Lister les stations avec plus de 2 v�los disponibles (available_bikes)
+
+Requete : db.velov.find({"properties.available_bikes": {$gt : 2 }},{_id:1 ,"properties.available_bikes":1, "properties.name":1 , "properties.commune":1}).limit(10)
+
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ac"), "properties" : { "name" : "Sédaillan / Naviguation", "commune" : "Lyon 9 ème", "available_bikes" : 13 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ad"), "properties" : { "name" : "Pont Masaryk", "commune" : "Lyon 4 ème", "available_bikes" : 20 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28af"), "properties" : { "name" : "Cité Int. / Palais des Congrés", "commune" : "Lyon 6 ème", "available_bikes" : 10 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b0"), "properties" : { "name" : "Gailleton", "commune" : "Lyon 2 ème", "available_bikes" : 7 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b1"), "properties" : { "name" : "Charpennes", "commune" : "VILLEURBANNE", "available_bikes" : 24 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b2"), "properties" : { "name" : "Augagneur", "commune" : "Lyon 3 ème", "available_bikes" : 15 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b3"), "properties" : { "name" : "Masaryk / Saint Cyr", "commune" : "Lyon 9 ème", "available_bikes" : 12 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b6"), "properties" : { "name" : "Gambetta / Jusserand", "commune" : "Lyon 3 ème", "available_bikes" : 3 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b8"), "properties" : { "name" : "Boulevard des Belges", "commune" : "Lyon 6 ème", "available_bikes" : 10 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b9"), "properties" : { "name" : "Bellecour", "commune" : "Lyon 2 ème", "available_bikes" : 15 } }
+
+
+----------------------------------------------------------------------------------------------------------
+
+6. Lister toutes les communes distinctes
+
+Requête : db.velov.distinct("properties.commune")
+
+[
+	"CALUIRE-ET-CUIRE",
+	"Lyon 1 er",
+	"Lyon 2 ème",
+	"Lyon 3 ème",
+	"Lyon 4 ème",
+	"Lyon 5 ème",
+	"Lyon 6 ème",
+	"Lyon 7 ème",
+	"Lyon 8 ème",
+	"Lyon 9 ème",
+	"VAULX-EN-VELIN",
+	"VENISSIEUX",
+	"VILLEURBANNE"
+]
+
+
+----------------------------------------------------------------------------------------------------------
+7. Lister toutes les communes distinctes, trier les résultats par ordre alphabétique
+
+Requête : db.velov.distinct("properties.commune").sort()
+
+	"CALUIRE-ET-CUIRE",
+	"Lyon 1 er",
+	"Lyon 2 ème",
+	"Lyon 3 ème",
+	"Lyon 4 ème",
+	"Lyon 5 ème",
+	"Lyon 6 ème",
+	"Lyon 7 ème",
+	"Lyon 8 ème",
+	"Lyon 9 ème",
+	"VAULX-EN-VELIN",
+	"VENISSIEUX",
+	"VILLEURBANNE"
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+8. Lister les stations du 9ème arrondissement (Lyon 9 ème) par ordre croissant de vélos disponibles
+
+Requête : db.velov.find({"properties.commune":"Lyon 9 ème"},{"properties.commune":1,"properties.available_bikes":1}).sort({"properties.available_bikes":1}).limit(10)
+
+ 
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2926"), "properties" : { "commune" : "Lyon 9 ème", "available_bikes" : 0 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2982"), "properties" : { "commune" : "Lyon 9 ème", "available_bikes" : 0 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29c4"), "properties" : { "commune" : "Lyon 9 ème", "available_bikes" : 0 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ce"), "properties" : { "commune" : "Lyon 9 ème", "available_bikes" : 1 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29e3"), "properties" : { "commune" : "Lyon 9 ème", "available_bikes" : 1 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29aa"), "properties" : { "commune" : "Lyon 9 ème", "available_bikes" : 3 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2905"), "properties" : { "commune" : "Lyon 9 ème", "available_bikes" : 4 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28fe"), "properties" : { "commune" : "Lyon 9 ème", "available_bikes" : 5 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28d8"), "properties" : { "commune" : "Lyon 9 ème", "available_bikes" : 9 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2994"), "properties" : { "commune" : "Lyon 9 ème", "available_bikes" : 9 } }
+
+----------------------------------------------------------------------------------------------------------
+9. Projeter les résultats sur le nom, l'adresse et le nombre de vélos disponibles
+
+Requête : db.velov.find({"properties.commune":"Lyon 9 ème"},{"properties.name":1,"properties.address":1,"properties.available_bikes":1}).sort({"properties.available_bikes":1}).limit(10)
+
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2926"), "properties" : { "name" : "Le Chateau", "address" : "228 avenue du Plateau", "available_bikes" : 0 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2982"), "properties" : { "name" : "Andréi Sakharov", "address" : "301 avenue A.Sakharov", "available_bikes" : 0 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29c4"), "properties" : { "name" : "Balmont", "address" : "332 bd de Balmont", "available_bikes" : 0 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28ce"), "properties" : { "name" : "Masset / 3 septembre 1944", "address" : "41, Rue du Bourbonnais", "available_bikes" : 1 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29e3"), "properties" : { "name" : "Place Rhodiaceta", "address" : "53 rue Chapeau Rouge", "available_bikes" : 1 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29aa"), "properties" : { "name" : "Saint Pierre de Vaise", "address" : "Place Vanderpol", "available_bikes" : 3 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2905"), "properties" : { "name" : "Place du March�", "address" : "rue du Bourbonnais", "available_bikes" : 4 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28fe"), "properties" : { "name" : "St Rambert - Ile Barbe", "address" : "3 quai Paul Sédallian", "available_bikes" : 5 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28d8"), "properties" : { "name" : "Piscine de Vaise", "address" : "En face du 51 rue Sidoine Appolinaire", "available_bikes" : 9 } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2994"), "properties" : { "name" : "Gorge de Loup", "address" : "Devant 49 bis esplanade Lima Cretet", "available_bikes" : 9 } }
+
+----------------------------------------------------------------------------------------------------------
+
+10. Afficher les communes et le nombre de stations Vélo'V par commune
+
+Requête : db.velov.aggregate([
+
+		{$group:{"_id":"$properties.commune", "Nombre de stations": {$sum:1}}}
+
+	])
+
+
+{ "_id" : "Lyon 7 ème", "Nombre de stations" : 40 }
+{ "_id" : "Lyon 6 ème", "Nombre de stations" : 28 }
+{ "_id" : "VENISSIEUX", "Nombre de stations" : 1 }
+{ "_id" : "Lyon 5 ème", "Nombre de stations" : 24 }
+{ "_id" : "VAULX-EN-VELIN", "Nombre de stations" : 2 }
+{ "_id" : "Lyon 3 éme", "Nombre de stations" : 50 }
+{ "_id" : "Lyon 2 éme", "Nombre de stations" : 32 }
+{ "_id" : "CALUIRE-ET-CUIRE", "Nombre de stations" : 3 }
+{ "_id" : "Lyon 9 éme", "Nombre de stations" : 23 }
+{ "_id" : "Lyon 1 er", "Nombre de stations" : 18 }
+{ "_id" : "VILLEURBANNE", "Nombre de stations" : 73 }
+{ "_id" : "Lyon 4 éme", "Nombre de stations" : 20 }
+{ "_id" : "Lyon 8 éme", "Nombre de stations" : 34 }
+
+----------------------------------------------------------------------------------------------------------
+
+
+11. Triez par commune
+
+Requête :  db.velov.aggregate([
+
+		{$group:{"_id":"$properties.commune", "Nombre de stations": {$sum:1}}},
+		{$sort :{"_id":1}}
+
+	])
+
+{ "_id" : "CALUIRE-ET-CUIRE", "Nombre de stations" : 3 }
+{ "_id" : "Lyon 1 er", "Nombre de stations" : 18 }
+{ "_id" : "Lyon 2 ème", "Nombre de stations" : 32 }
+{ "_id" : "Lyon 3 ème", "Nombre de stations" : 50 }
+{ "_id" : "Lyon 4 éme", "Nombre de stations" : 20 }
+{ "_id" : "Lyon 5 ème", "Nombre de stations" : 24 }
+{ "_id" : "Lyon 6 ème", "Nombre de stations" : 28 }
+{ "_id" : "Lyon 7 ème", "Nombre de stations" : 40 }
+{ "_id" : "Lyon 8 ème", "Nombre de stations" : 34 }
+{ "_id" : "Lyon 9 ème", "Nombre de stations" : 23 }
+{ "_id" : "VAULX-EN-VELIN", "Nombre de stations" : 2 }
+{ "_id" : "VENISSIEUX", "Nombre de stations" : 1 }
+{ "_id" : "VILLEURBANNE", "Nombre de stations" : 73 }
+> 
+
+
+
+----------------------------------------------------------------------------------------------------------
+12. Triez par nb de stations en ordre décroissante
+
+Requête :  db.velov.aggregate([
+
+	{$group:{"_id":"$properties.commune", "Nombre de stations": {$sum:1}}},
+	{$sort :{"Nombre de stations":1}
+
+	])
+
+{ "_id" : "VILLEURBANNE", "Nombre de stations" : 73 }
+{ "_id" : "Lyon 3 ème", "Nombre de stations" : 50 }
+{ "_id" : "Lyon 7 ème", "Nombre de stations" : 40 }
+{ "_id" : "Lyon 8 ème", "Nombre de stations" : 34 }
+{ "_id" : "Lyon 2 ème", "Nombre de stations" : 32 }
+{ "_id" : "Lyon 6 ème", "Nombre de stations" : 28 }
+{ "_id" : "Lyon 5 ème", "Nombre de stations" : 24 }
+{ "_id" : "Lyon 9 ème", "Nombre de stations" : 23 }
+{ "_id" : "Lyon 4 ème", "Nombre de stations" : 20 }
+{ "_id" : "Lyon 1 er", "Nombre de stations" : 18 }
+{ "_id" : "CALUIRE-ET-CUIRE", "Nombre de stations" : 3 }
+{ "_id" : "VAULX-EN-VELIN", "Nombre de stations" : 2 }
+{ "_id" : "VENISSIEUX", "Nombre de stations" : 1 }
+
+----------------------------------------------------------------------------------------------------------
+
+13. Nombre de stations Vélo'V de Villeurbanne groupés par nombre de vélos disponibles triés selon ce nombre
+
+Requête : db.velov.aggregate([
+
+		{$match : {"properties.commune" : "VILLEURBANNE"}},
+		{$group: { "_id" : "$properties.available_bikes", "Nombre de stations" : { $sum: 1}}},
+		{$sort : {"_id":1}}
+
+	])
+
+
+
+
+{ "_id" : 0, "Nombre de stations" : 13 }
+{ "_id" : 1, "Nombre de stations" : 4 }
+{ "_id" : 2, "Nombre de stations" : 8 }
+{ "_id" : 3, "Nombre de stations" : 3 }
+{ "_id" : 4, "Nombre de stations" : 3 }
+{ "_id" : 5, "Nombre de stations" : 3 }
+{ "_id" : 6, "Nombre de stations" : 5 }
+{ "_id" : 7, "Nombre de stations" : 4 }
+{ "_id" : 8, "Nombre de stations" : 2 }
+{ "_id" : 9, "Nombre de stations" : 2 }
+{ "_id" : 10, "Nombre de stations" : 3 }
+{ "_id" : 11, "Nombre de stations" : 3 }
+{ "_id" : 12, "Nombre de stations" : 2 }
+{ "_id" : 13, "Nombre de stations" : 2 }
+{ "_id" : 14, "Nombre de stations" : 4 }
+{ "_id" : 15, "Nombre de stations" : 1 }
+{ "_id" : 16, "Nombre de stations" : 1 }
+{ "_id" : 17, "Nombre de stations" : 3 }
+{ "_id" : 19, "Nombre de stations" : 2 }
+{ "_id" : 20, "Nombre de stations" : 2 }
+
+
+----------------------------------------------------------------------------------------------------------
+14. Rajouter au résultat précédent, les noms des stations pour chaque nombre de vélos disponible
+
+Requête :  db.velov.aggregate([
+
+		{$match : {"properties.commune" : "VILLEURBANNE"}},
+		{$group: { "_id" : "$properties.available_bikes", "Nombre de stations" : { $sum: 1},
+		 "Les stations": {$push : {"Noms" : "$properties.name"}}}},
+		{$sort : {"_id":1}}
+
+	])
+
+{ "_id" : 0, "Nombre de stations" : 13, "Les stations" : [ { "Noms" : "Place de la Reconnaissance" }, { "Noms" : "Nouveau Mus�e D'Art Contemporain" }, { "Noms" : "M�moire & Soci�t�" }, { "Noms" : "Ch�teau Gaillard / Filature" }, { "Noms" : "Gare Laurent Bonnevay" }, { "Noms" : "Cusset / Voyant" }, { "Noms" : "Parc du Centre" }, { "Noms" : "Boiron Grang�" }, { "Noms" : "Lyc�e Marie Curie" }, { "Noms" : "Pressens� / Bienvenus" }, { "Noms" : "Saint Exup�ry" }, { "Noms" : "GrandCl�ment" }, { "Noms" : "Rollet / 4 ao�t 1789 / Blanqui" } ] }
+{ "_id" : 1, "Nombre de stations" : 4, "Les stations" : [ { "Noms" : "Maisons Neuves" }, { "Noms" : "Salengro / Vaillant" }, { "Noms" : "Tolsto� / Verlaine" }, { "Noms" : "Pr�ssens� / 8 mai 1945" } ] }
+{ "_id" : 2, "Nombre de stations" : 8, "Les stations" : [ { "Noms" : "Charmettes / Zola" }, { "Noms" : "MJC" }, { "Noms" : "Saint Jean" }, { "Noms" : "Zola / Passage Rey" }, { "Noms" : "La P�rrali�re" }, { "Noms" : "Condorcet / Piaton" }, { "Noms" : "Perrin/Jean Jaur�s" }, { "Noms" : "Croix Luizet" } ] }
+{ "_id" : 3, "Nombre de stations" : 3, "Les stations" : [ { "Noms" : "Salengro / 8 mai 1945" }, { "Noms" : "Tonkin / Allende" }, { "Noms" : "Anatole France / Lherminier" } ] }
+{ "_id" : 4, "Nombre de stations" : 3, "Les stations" : [ { "Noms" : "Totem" }, { "Noms" : "Mairie de Villeurbanne" }, { "Noms" : "Charmettes / P�ri / Philip" } ] }
+{ "_id" : 5, "Nombre de stations" : 3, "Les stations" : [ { "Noms" : "Gratte-Ciel / Branly" }, { "Noms" : "4 ao�t 1789 / Zola" }, { "Noms" : "Gare de Villeurbanne" } ] }
+{ "_id" : 6, "Nombre de stations" : 5, "Les stations" : [ { "Noms" : "Bouvier / 8 mai 1945" }, { "Noms" : "Condorcet / 11 Nov. 1918" }, { "Noms" : "Vaillant/Perroncel" }, { "Noms" : "m�tro R�publique" }, { "Noms" : "Anatole France / Pressens�" } ] }
+{ "_id" : 7, "Nombre de stations" : 4, "Les stations" : [ { "Noms" : "Condorcet / Galline" }, { "Noms" : "Bon Coin" }, { "Noms" : "Place Marengo" }, { "Noms" : "Verdun/Desgrand" } ] }
+{ "_id" : 8, "Nombre de stations" : 2, "Les stations" : [ { "Noms" : "m�tro Flachet" }, { "Noms" : "Salengro / Descartes" } ] }
+{ "_id" : 9, "Nombre de stations" : 2, "Les stations" : [ { "Noms" : "IUT" }, { "Noms" : "Ch�teau Gaillard / Dupeuble" } ] }
+
+
+----------------------------------------------------------------------------------------------------------
+15. Calculer le nombre moyen de vélos disponibles par commune
+
+Requête : db.velov.aggregate([
+	  {$group: {"_id": "$properties.commune", "Nombre moyen de vélo": {$avg: "$properties.available_bikes"}}},
+	  {$sort : {"_id":1}}
+])
+
+
+{ "_id" : "CALUIRE-ET-CUIRE", "Nombre moyen de vélo" : 11 }
+{ "_id" : "Lyon 1 er", "Nombre moyen de vélo" : 5.333333333333333 }
+{ "_id" : "Lyon 2 ème", "Nombre moyen de vélo" : 13.25 }
+{ "_id" : "Lyon 3 ème", "Nombre moyen de vélo" : 11.16 }
+{ "_id" : "Lyon 4 ème", "Nombre moyen de vélo" : 6.05 }
+{ "_id" : "Lyon 5 ème", "Nombre moyen de vélo" : 8.083333333333334 }
+{ "_id" : "Lyon 6 ème", "Nombre moyen de vélo" : 11 }
+{ "_id" : "Lyon 7 ème", "Nombre moyen de vélo" : 12.975 }
+{ "_id" : "Lyon 8 ème", "Nombre moyen de vélo" : 6.764705882352941 }
+{ "_id" : "Lyon 9 ème", "Nombre moyen de vélo" : 9.434782608695652 }
+{ "_id" : "VAULX-EN-VELIN", "Nombre moyen de vélo" : 11.5 }
+{ "_id" : "VENISSIEUX", "Nombre moyen de vélo" : 5 }
+{ "_id" : "VILLEURBANNE", "Nombre moyen de vélo" : 7.657534246575342 }
+
+----------------------------------------------------------------------------------------------------------
+
+
+Requêtes géographiques :
+
+Préciser que les coordonnées sont des données géographiques en créant un index 2dsphere :
+use TP-MONGO;
+db.velov.createIndex( { "geometry.coordinates" : "2dsphere" } )
+
+Vérifiez que l'index a bien été créé avec :
+db.velov.getIndexes() ;
+
+16. Chercher les stations Vélo'V qui sont à moins de 1000m du point :
+$geometry: { type: "Point", coordinates: [ 4.863132722360224, 45.77022676914935 ] } (utilisez : $near)
+
+Requête : db.velov.find(
+	{ "geometry.coordinates":
+	 	{ $near :
+			{$geometry: { type: "Point", coordinates: [ 4.863132722360224, 45.77022676914935 ] },
+			$maxDistance: 1000 }}},
+			{"properties.name":1})
+		.limit(10)
+
+
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28b1"), "properties" : { "name" : "Charpennes" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c294c"), "properties" : { "name" : "Charles Hernu / Vitton" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2968"), "properties" : { "name" : "Charmettes / Péri / Philip" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c28c5"), "properties" : { "name" : "Charmettes / Zola" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29e4"), "properties" : { "name" : "Brotteaux" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29a6"), "properties" : { "name" : "Jacques Brel /Chorel" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2930"), "properties" : { "name" : "Charmettes - Bellecombe" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2978"), "properties" : { "name" : "Viabert / Avenue Thiers" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c291d"), "properties" : { "name" : "Gare des Brotteaux" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29c3"), "properties" : { "name" : "Tronchet / Anatole France" } }
+
+----------------------------------------------------------------------------------------------------------
+
+17. Listez les 5 stations les plus proches des coordonnées type : "Point", coordinates: [ 4.863132722360224, 45.77022676914935 ] } (utilisez : geoNear)
+
+Requête : db.velov.aggregate([
+		{$geoNear:{
+			  near:{ type: "Point", coordinates: [ 4.863132722360224, 45.77022676914935 ] },
+			  key: "geometry.coordinates",
+		          distanceField: "dist.calculated"}},
+		 {$limit: 5 },
+		 {$group: {  "_id" : "$properties.name",  "distance" : {$push: "$dist.calculated"}}},
+		 {$sort : {"distance":1}} ])
+   	
+
+{ "_id" : "Charpennes", "Distance" : [ 0 ] }
+{ "_id" : "Charles Hernu / Vitton", "Distance" : [ 68.95770744677753 ] }
+{ "_id" : "Charmettes / Péri / Philip", "Distance" : [ 304.8901454368198 ] }
+{ "_id" : "Charmettes / Zola", "Distance" : [ 317.49695509761193 ] }
+{ "_id" : "Brotteaux", "Distance" : [ 374.5593096554809 ] }
+
+----------------------------------------------------------------------------------------------------------
+
+Requêtes textuelles :
+
+Préciser que le champ pole est de type texte et créez un index sur ce champ :
+db.velov.createIndex( { "properties.pole": "text" } , { default_language: "french" })
+
+18. Cherchez les stations dont le pole répond à la requête "quartiers"
+
+Requête : db.velov.find({$text:{$search:"quartiers"}},{"properties.name":1,"properties.pole":1}).limit(10)
+
+	
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29ed"), "properties" : { "name" : "Voltaire / Créqui", "pole" : "Coeur de quartier" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29d7"), "properties" : { "name" : "Place Ronde", "pole" : "coeur de quartier" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29bd"), "properties" : { "name" : "Croix Luizet", "pole" : "Centre quartier" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29b7"), "properties" : { "name" : "Francis de Pressenssé", "pole" : "Quartier d'habitation" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29b2"), "properties" : { "name" : "Perrin/Jean Jaurès", "pole" : "quartier Grandclément" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c29aa"), "properties" : { "name" : "Saint Pierre de Vaise", "pole" : "coeur de quartier" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c298d"), "properties" : { "name" : "Place Cdt Arnaud", "pole" : "coeur quartier" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c2985"), "properties" : { "name" : "Place Edgar Quinet", "pole" : "coeur quartier" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c297c"), "properties" : { "name" : "Lycée Marie Curie", "pole" : "lycée, quartier" } }
+{ "_id" : ObjectId("5e13536c1e9e49caae3c294a"), "properties" : { "name" : "Place Bertone", "pole" : "coeur quartier" } }
