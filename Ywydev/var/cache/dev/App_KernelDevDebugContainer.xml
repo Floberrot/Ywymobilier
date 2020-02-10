@@ -2473,14 +2473,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -5097,13 +5089,14 @@
         <argument key="repository" type="service" id="App\Repository\PropertyRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.GvtgMDu" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.kRTL7PZ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AboutController::index" type="service" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\Admin\AdminPropertyController::delete" type="service" id=".service_locator.cmwrHo6"/>
         <argument key="App\Controller\Admin\AdminPropertyController::edit" type="service" id=".service_locator.cmwrHo6"/>
         <argument key="App\Controller\Admin\AdminPropertyController::index" type="service" id=".service_locator.1UuH9tO"/>
+        <argument key="App\Controller\Admin\AdminPropertyController::new" type="service" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\ContactController::index" type="service" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\ContactController::new" type="service" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\HomeController::index" type="service" id=".service_locator.UVKG2ZO"/>
@@ -5116,6 +5109,7 @@
         <argument key="App\Controller\Admin\AdminPropertyController:delete" type="service" id=".service_locator.cmwrHo6"/>
         <argument key="App\Controller\Admin\AdminPropertyController:edit" type="service" id=".service_locator.cmwrHo6"/>
         <argument key="App\Controller\Admin\AdminPropertyController:index" type="service" id=".service_locator.1UuH9tO"/>
+        <argument key="App\Controller\Admin\AdminPropertyController:new" type="service" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\ContactController:index" type="service" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\ContactController:new" type="service" id=".service_locator.1UuH9tO"/>
         <argument key="App\Controller\HomeController:index" type="service" id=".service_locator.UVKG2ZO"/>
@@ -5588,12 +5582,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.GvtgMDu"/>
+      <argument type="service" id=".service_locator.kRTL7PZ"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.GvtgMDu"/>
+      <argument type="service" id=".service_locator.kRTL7PZ"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5983,7 +5977,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.GvtgMDu"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.kRTL7PZ"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
