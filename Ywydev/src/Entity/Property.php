@@ -82,6 +82,12 @@ class Property
      */
     private $locate = false;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="properties")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function __construct()
     {
         $this->created_at = new \DateTime();
@@ -113,6 +119,7 @@ class Property
     {
         return $this->description;
     }
+
 
     public function setDescription(?string $description): self
     {
@@ -233,4 +240,17 @@ class Property
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
 }
