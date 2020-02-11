@@ -3,6 +3,7 @@ body {
     background-repeat: no-repeat;
     min-height: 100vh;
 }
+
 .underline {
     border-bottom: 1px solid black;
     padding-bottom: 15px;
@@ -55,8 +56,8 @@ body {
 }
 
 .team_img {
-    border: 10px solid darkgray;
-    border-radius: 100px;
+    border: 5px solid deepskyblue;
+    border-radius: 50%;
     filter: grayscale(1);
     width: 200px;
     height: 220px;
@@ -412,6 +413,11 @@ a:hover, a:focus {
 
 a:hover {
     color: #000;
+}
+.home-last-offer-title{
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 40px;
 }
 
 section.clients-home .clients-logos .client-logos-repeater {
