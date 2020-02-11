@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
 
     <list default="true" id="23795749-238c-47ed-b95e-15d7674e1489" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ywydev/public/images/BERROT_TPMongo.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ywydev/src/Controller/OfferController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Ywydev/src/Controller/OfferController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ywydev/templates/pages/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Ywydev/templates/pages/contact.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ywydev/templates/pages/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/Ywydev/templates/pages/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Ywymobilier.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ywymobilier.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
