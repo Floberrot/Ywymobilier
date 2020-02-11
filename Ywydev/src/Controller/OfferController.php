@@ -58,9 +58,14 @@ class OfferController extends AbstractController
      */
     public function getOffer(PropertyRepository $repository): Response
     {
-        $properties = $repository->findLatest();
+        /* @var \App\Entity\Property[] $properties */
+        $properties = $repository->findAll();
         $encoders = array(new JsonEncoder());
         $normalizers = array(new ObjectNormalizer());
+
+        foreach ($properties as $property) {
+            $property->setUser(null);
+        }
 
         $serializer = new Serializer($normalizers, $encoders);
         $productSerialized = $serializer->serialize($properties, 'json');
