@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Form\PropertyType;
+use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\Types\AbstractList;
@@ -38,12 +39,18 @@ class AdminPropertyController extends AbstractController
 
     /**
      * @\Symfony\Component\Routing\Annotation\Route("/admin", name="admin.property.index")
+     * @param UserRepository $userRepository
      * @return Response
      */
-    public function index(): Response
+    public function index(UserRepository $userRepository): Response
     {
-        $properties = $this->repository->findAll();
-        return $this->render('admin/property/index.html.twig', compact('properties'));
+        $properties = $this->repository->findBy([
+            'user' => $userRepository->find($this->getUser()->getId())
+        ]);
+
+        return $this->render('admin/property/index.html.twig', [
+            'property' => $properties
+        ]);
     }
 
 
@@ -52,11 +59,15 @@ class AdminPropertyController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function new (Request $request)   {
+    public function new(Request $request, UserRepository $userRepository)
+    {
 
         $property = new Property();
         $form = $this->createForm(PropertyType::class, $property);
         $form->handleRequest($request);
+
+        $userId = $userRepository->findOneById($this->getUser()->getId());
+        $property->setUser($userId);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->persist($property);
@@ -84,7 +95,7 @@ class AdminPropertyController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();
-            $this->addFlash('success','Bien modifié avec succès');
+            $this->addFlash('success', 'Bien modifié avec succès');
             return $this->redirectToRoute('admin.property.index');
 
         }
@@ -100,13 +111,15 @@ class AdminPropertyController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function delete(Property $property, Request $request){
+    public function delete(Property $property, Request $request)
+    {
 
-        if ($this->isCsrfTokenValid('delete' . $property->getId(), $request->get('_token'))){
+        if ($this->isCsrfTokenValid('delete' . $property->getId(), $request->get('_token'))) {
             $this->em->remove($property);
             $this->em->flush();
-            $this->addFlash('success','Bien supprimé avec succès');
+            $this->addFlash('success', 'Bien supprimé avec succès');
 
         }
-        return $this->redirectToRoute('admin.property.index');    }
+        return $this->redirectToRoute('admin.property.index');
+    }
 }
