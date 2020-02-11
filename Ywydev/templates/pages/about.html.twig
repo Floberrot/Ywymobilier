@@ -3,41 +3,39 @@
 {% block title %}A propos{% endblock %}
 
 {% block body %}
+    <div class="container">
         <div class="ct-pageWrapper" id="ct-js-wrapper">
-            <section class="company-heading intro-type" id="parallax-one">
-                <div class="container">
-                    <div class="row product-title-info">
-                        <div class="col-md-12">
-                            <h1>IWI</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="parallax" id="parallax-cta" style="background:url('/images/header_about.jpg') center no-repeat ;opacity: 50%"></div>
-            </section>
-            <section class="story-section company-sections ct-u-paddingBoth100 paddingBothHalf noTopMobilePadding" id="section">
-                <div class="container text-center">
-                    <h2>Pourquoi on a décidé de créer YWY?</h2>
-                    <h3>Pour les étudiants</h3>
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="red-border"></div>
-                        <br><p class="ct-u-size22 ct-u-fontWeight300 marginTop40">Nous avons créé Ywymobilier afin d'aider les nouveaux étudiants lyonnais à trouver un logement. Cette
-                            recherche est très souvent source de stress, on a donc créer cette application pour diminuer ce stress.</p>
-                        <!-- <a class="ct-u-marginTop60 btn btn-solodev-red btn-fullWidth-sm ct-u-size19" href="#">Learn More</a> -->
-                    </div>
+            <section class="company-heading intro-type">
+                <div class="header">
+                    <h1 class="title-about">A propos</h1>
                 </div>
             </section>
-            <section class="culture-section company-sections ct-u-paddingBoth100 paddingBothHalf noTopMobilePadding" style=";background:url('/images/lyon.jpg' ) rgba(255, 255, 255, .4);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <h2>Notre objectif</h2>
-                            <h3>Cibler la recherce d'appartement exclusivement pour les étudiants</h3>
-                            <p class="ct-u-size22 ct-u-fontWeight300 ct-u-marginBottom60">Les propriétaires devront ajouter des offres de location que pour les étudiants<br>
-                                Il faut que les propriétaires se rendent compte de la difficulté pour les étudiants de trouver un logement.
-                          <br> <br>Voici les valeurs que nous voulons transmettre</p>
-                        </div>
+            <section class="story-section company-sections ct-u-paddingBoth100 paddingBothHalf noTopMobilePadding"
+                     id="section">
+                <h2 class="title-background">Pourquoi on a décidé de créer YWY?</h2>
+                <div class="underline"></div>
+                <h3>Pour les étudiants</h3>
+                <p class="text-center">Nous avons créé Ywymobilier afin d'aider les
+                    nouveaux étudiants lyonnais à trouver un logement. Cette
+                    recherche est très souvent source de stress, on a donc créer cette application pour diminuer ce
+                    stress.</p>
+
+            </section>
+            <section class="culture-section company-sections ct-u-paddingBoth100 paddingBothHalf noTopMobilePadding background-photo">
+                    <div class="text-center">
+                        <h2 class="text-image">Notre objectif</h2>
+                        <br>
+                        <h3 class="text-image">Cibler la recherce d'appartement exclusivement pour les étudiants</h3>
+                        <br>
+                        <p class="ct-u-size22 ct-u-fontWeight300 ct-u-marginBottom60 text-desc-image">Les propriétaires devront
+                            ajouter
+                            des offres de location que pour les étudiants<br>
+                            Il faut que les propriétaires se rendent compte de la difficulté pour les étudiants de
+                            trouver un logement.
+                            <br> <br>Voici les valeurs que nous voulons transmettre</p>
                     </div>
-                    <div class="row ct-u-paddingBoth20">
+
+                    <div class="row ct-u-paddingBoth20 text-desc-image">
                         <div class="col-xs-6 col-md-4">
                             <div class="company-icons-white">
                                 <i class="fa fa-medkit" aria-hidden="true"></i>
@@ -61,30 +59,34 @@
                         </div>
                     </div>
 
-                    <a class="ct-u-marginTop60 btn btn-fullWidth-sm ct-u-size19" id="log" href="{{ path('contact') }}">Contactez-nous !</a>
-                </div>
+                    <a class="ct-u-marginTop60 btn btn-fullWidth-sm ct-u-size19" id="log" href="{{ path('contact') }}">Contactez-nous
+                        !</a>
             </section>
-                <section class="story-section company-sections ct-u-paddingBoth100 paddingBothHalf noTopMobilePadding" id="section">
-                    <div class="container">
-                        <h2>Notre Equipe</h2>
-                        <h3>Des étudiants</h3>
-                        <div class="red-border"></div>
-                        <div class="row">
+
+            <section class="story-section company-sections ct-u-paddingBoth100 paddingBothHalf noTopMobilePadding"
+                     id="section">
+                    <h2 class="title-background">Notre Equipe</h2>
+                    <div class="underline"></div>
+
+                    <h3>Des étudiants</h3>
+                    <div class="red-border"></div>
+                    <div class="row">
                         <div class="col-md-6">
                             <h3>Florian Berrot</h3>
                             <img class="team_img" src="/images/flo.jpg" alt="Florian BERROT">
-                            <p class="ct-u-size22 ct-u-fontWeight300 marginTop40">Développeur - Etudiant à Ynov Campus</p>
+                            <p class="ct-u-size22 ct-u-fontWeight300 marginTop40">Développeur - Etudiant à Ynov
+                                Campus</p>
                         </div>
                         <div class="col-md-6">
                             <h3>Steven Copy</h3>
                             <img class="team_img" src="/images/sti.png" alt="Steven copy">
-                            <p class="ct-u-size22 ct-u-fontWeight300 marginTop40">Développeur - Etudiant à Ynov Campus</p>
-                        </div>
+                            <p class="ct-u-size22 ct-u-fontWeight300 marginTop40">Développeur - Etudiant à Ynov
+                                Campus</p>
                         </div>
                     </div>
-
             </section>
         </div>
+    </div>
 
 
 {% endblock %}
