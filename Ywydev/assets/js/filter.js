@@ -1,3 +1,4 @@
+
 new Vue({
     el: '#app',
     delimiters: ['${', '}'],
@@ -12,12 +13,6 @@ new Vue({
                     return !this.searchText
                         || (property.title).toLowerCase().includes(this.searchText.toLowerCase());
                 })
-                // .filter(user => {
-                //     return (this.gender === 'other' || this.gender === user.gender);
-                // })
-                // .sort((user1, user2) => {
-                //     return (user1.dob.age - user2.dob.age) * this.ageSorting;
-                // });
         },
     },
     methods: {
