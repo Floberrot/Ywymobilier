@@ -76,13 +76,13 @@
             </li>
 
 
-                {% if app.user %}
-            {% if 'Proprietaire' in app.user.roles %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('admin.property.index') }}">Administration</a>
-                </li>
-            {% endif %}
+            {% if app.user %}
+                {% if 'Proprietaire' in app.user.roles %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin.property.index') }}">Administration</a>
+                    </li>
                 {% endif %}
+            {% endif %}
 
 
 
@@ -113,7 +113,24 @@
     {% block body %}{% endblock %}
 </div>
 <footer>
-    {% block footer %}{% endblock %}
+    {% block footer %}
+    <div class="container">
+        <ul class="foote_bottom_ul_amrc">
+            <li><a href="{{ path('Home') }}">Home</a></li>
+            <li><a href="{{ path('Offres') }}">Offres</a></li>
+            <li><a href="{{ path('about') }}">About</a></li>
+        </ul>
+        <div class="underline-white"></div>
+        <p class="text-footer">Copyright @2020 | Created And Designed by <a href="#">Steven Copy</a>
+            & <a href="#">Florian Berrot</a></p>
+
+        <ul class="social_footer_ul">
+            <li><a href="https://www.ynov.com/"><img src="/images/ynov.png"></a></li>
+        </ul>
+        <!--social_footer_ul ends here-->
+    </div>
+
+</footer>{% endblock %}
 </footer>
 {% block javascripts %}
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

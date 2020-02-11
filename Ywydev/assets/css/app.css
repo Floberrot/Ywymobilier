@@ -11,23 +11,34 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+.underline-white{
+    border-bottom: 1px solid white;
+    padding-bottom: 15px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-.text-image{
+.text-image {
     text-shadow: 0 0 5px dimgrey;
 }
-.text-desc-image{
+
+.text-desc-image {
     text-shadow: 0 0 2px #000000
 }
-.background-photo{
+
+.background-photo {
     background: url('/images/lyon.jpg') no-repeat;
     opacity: 90%;
 }
-.title-about{
+
+.title-about {
     padding-top: 50px;
     color: white;
     text-shadow: 0 0 10px #000000;
 }
-.title-background{
+
+.title-background {
     text-shadow: 0 0 2px dimgrey;
 }
 
@@ -42,7 +53,8 @@ body {
 .menu-btn-connexion {
     align-items: flex-end;
 }
-.text-center{
+
+.text-center {
     padding-top: 35px;
     margin-left: auto;
     margin-right: auto;
@@ -103,7 +115,8 @@ body {
     text-decoration: none;
     color: #4AD2FF;
 }
-#form_connexion input{
+
+#form_connexion input {
     text-align: center;
     width: 70%;
     align-items: center;
@@ -113,11 +126,13 @@ body {
     color: white;
     margin-top: 25px;
 }
-.form-control{
+
+.form-control {
     margin-left: auto;
     margin-right: auto;
 }
-#username, #password{
+
+#username, #password {
     border-radius: 3px;
 }
 
@@ -186,7 +201,8 @@ body {
     margin: 30px 0 0 0;
 
 }
-.text-inscription{
+
+.text-inscription {
     width: 70%;
 }
 
@@ -422,7 +438,8 @@ a:hover, a:focus {
 a:hover {
     color: #000;
 }
-.home-last-offer-title{
+
+.home-last-offer-title {
     margin-bottom: 30px;
     text-align: center;
     font-size: 40px;
@@ -468,4 +485,60 @@ section.clients-home .clients-logos .client-logos-repeater img {
     color: #fff;
 }
 
+/*Footer*/
+footer {
+    width: 100%;
+    background-color: #263238;
+    min-height: 250px;
+    padding: 10px 0px 25px 0px;
+}
+.text-footer{
+    text-align: center;
+    padding-top: 30px;
+    color: lightgrey;
+}
+
+.foote_bottom_ul_amrc {
+    list-style-type: none;
+    padding: 0px;
+    display: table;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+}
+
+.foote_bottom_ul_amrc li {
+    display: inline;
+}
+
+.foote_bottom_ul_amrc li a {
+    color: deepskyblue;
+    margin: 0 12px;
+}
+
+.social_footer_ul {
+    display: table;
+    margin: 15px auto 0 auto;
+    list-style-type: none;
+}
+
+.social_footer_ul li {
+    padding-left: 20px;
+    padding-top: 10px;
+    float: left;
+}
+
+.social_footer_ul li a {
+    color: deepskyblue;
+    border: 1px solid #CCC;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.social_footer_ul li i {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
 
