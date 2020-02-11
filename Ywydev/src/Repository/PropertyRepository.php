@@ -39,10 +39,12 @@ class PropertyRepository extends ServiceEntityRepository
     public function findLatest()
     {
         return $this->createQueryBuilder('p')
-            ->setMaxResults(4)
+            ->orderBy('p.created_at', 'DESC')
+            ->setMaxResults(3)
             ->getQuery()
             ->getResult();
     }
+
 
     // /**
     //  * @return Property[] Returns an array of Property objects
@@ -61,16 +63,16 @@ class PropertyRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Property
+
+    public function findOneById($userId): ?Property
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('p.id = :id')
+            ->setParameter('id', $userId)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+
 
 }
