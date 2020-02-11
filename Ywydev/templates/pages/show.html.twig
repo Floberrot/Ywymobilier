@@ -43,7 +43,15 @@
                     <div class="text-primary" style="font-size: 4rem">
                         {{ property.formattedPrice }} €
                     </div>
-                    <a href="#" class="btn btn-primary">Contacter le particulier!</a>
+                    <script type="text/javascript">
+                        // Popup window code
+                        function newPopup(url) {
+                            popupWindow = window.open(
+                                url,'popUpWindow','height=300,width=400,left=10,top=10,resizable=yes,scrollbars=yes,' +
+                                'toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+                        }
+                    </script>
+                    <p><a class="btn" id="log" target="_blank" href="{{ path('contact') }}">Contacter le particulier</a></p>
 
                 </div>
             </div>
