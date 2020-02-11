@@ -25,7 +25,6 @@ class PropertyType extends AbstractType
             ])
             ->add('locate', null, [
                 'label'=> 'Is it rented?'
-
             ])
         ;
     }

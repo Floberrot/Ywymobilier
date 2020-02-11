@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -33,6 +35,41 @@ class User implements UserInterface, \Serializable
      */
     private $username;
 
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $first_name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $last_name;
+
+    /**
+     * @ORM\Column(type="integer", length=10)
+     */
+    private $num;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $roles = [];
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Property", mappedBy="user", orphanRemoval=true)
+     */
+    private $properties;
+
+    public function __construct()
+    {
+        $this->properties = new ArrayCollection();
+    }
+
+
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -57,7 +94,7 @@ class User implements UserInterface, \Serializable
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
 
@@ -72,9 +109,44 @@ class User implements UserInterface, \Serializable
 
         return $this;
     }
-    public function getRoles(){
-        return ['ROLES_ADMIN'];
+
+
+    public function getFirstName(): string
+    {
+        return (string)$this->first_name;
     }
+
+    public function getLastName(): string
+    {
+        return (string)$this->last_name;
+    }
+
+    public function getNum(): ?int
+    {
+        return $this->num;
+    }
+
+    public function setFirstName(string $first_name): self
+    {
+        $this->first_name = $first_name;
+
+        return $this;
+    }
+
+    public function setLastName(string $last_name): self
+    {
+        $this->last_name = $last_name;
+
+        return $this;
+    }
+
+    public function setNum(string $num): self
+    {
+        $this->num = $num;
+
+        return $this;
+    }
+
 
     /**
      * @see UserInterface
@@ -103,7 +175,8 @@ return null;
           $this->id,
           $this->username,
           $this->email,
-          $this->password
+          $this->password,
+            $this->roles
       ]);
     }
 
@@ -122,7 +195,8 @@ return null;
             $this->id,
             $this->username,
             $this->email,
-            $this->password
+            $this->password,
+            $this->roles
             ) = unserialize($serialized, ['allowed_classes'=>false]);
     }
 
@@ -132,4 +206,48 @@ return null;
 
         return $this;
     }
+
+    public function getRoles(): ?array
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Property[]
+     */
+    public function getProperties(): Collection
+    {
+        return $this->properties;
+    }
+
+    public function addProperty(Property $property): self
+    {
+        if (!$this->properties->contains($property)) {
+            $this->properties[] = $property;
+            $property->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProperty(Property $property): self
+    {
+        if ($this->properties->contains($property)) {
+            $this->properties->removeElement($property);
+            // set the owning side to null (unless already changed)
+            if ($property->getUser() === $this) {
+                $property->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
