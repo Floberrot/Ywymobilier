@@ -92,6 +92,7 @@ class OfferController extends AbstractController
      */
     public function show(\App\Entity\Property $property, string $slug): Response
     {
+        $user = new User();
         if ($property->getSlug() !== $slug) {
             return $this->redirectToRoute('property.show', [
                 'id' => $property->getId(),
@@ -101,7 +102,7 @@ class OfferController extends AbstractController
         return $this->render('/pages/show.html.twig', [
             'property' => $property,
             'current_menu' => 'properties',
-            'user'=> User::class
+            'user'=> $user
         ]);
     }
 

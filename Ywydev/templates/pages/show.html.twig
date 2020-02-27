@@ -15,13 +15,16 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/images/exampl1.jpg" alt="Photo de l'appartement à louer" class="d-block w-100" alt="...">
+                                <img src="/images/exampl1.jpg" alt="Photo de l'appartement à louer"
+                                     class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/images/exampl1.jpg" alt="Photo de l'appartement à louer" class="d-block w-100" alt="...">
+                                <img src="/images/exampl1.jpg" alt="Photo de l'appartement à louer"
+                                     class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/images/exampl1.jpg" alt="Photo de l'appartement à louer" class="d-block w-100" alt="...">
+                                <img src="/images/exampl1.jpg" alt="Photo de l'appartement à louer"
+                                     class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
@@ -43,15 +46,32 @@
                     <div class="text-primary" style="font-size: 4rem">
                         {{ property.formattedPrice }} €
                     </div>
-                    <script type="text/javascript">
-                        // Popup window code
-                        function newPopup(url) {
-                            popupWindow = window.open(
-                                url,'popUpWindow','height=300,width=400,left=10,top=10,resizable=yes,scrollbars=yes,' +
-                                'toolbar=yes,menubar=no,location=no,directories=no,status=yes')
-                        }
-                    </script>
-                    <p><a class="btn" id="log" target="_blank" href="{{ path('contact') }}">Contacter le particulier</a></p>
+
+                    <a class="btn btn-primary" href="#popup1">Contactez le propriétaire</a>
+
+
+                    <div id="popup1" class="overlay">
+                        <div class="popup">
+                            <h4>Informations du propriétaire du logement "{{ property.title }}" situé
+                                a {{ property.address }}</h4>
+                            <a class="close" href="#">&times;</a>
+                            <div class="content">
+                                <table>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>{{user.id}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail</td>
+                                        <td>test@test.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Numéro</td>
+                                        <td>1234567890</td>
+                                    </tr>
+                                </table>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -63,7 +83,7 @@
 
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
 
                 <p>
                     {{ property.description }}
@@ -85,7 +105,23 @@
                 </table>
             </div>
             <div class="col md-4">
-                <h2>Spécificités</h2>
+                <p>Plus de détails sur l'adresse exacte du bien :</p>
+
+                <h2>Lieu</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <td>Ville:</td>
+                        <td>{{ property.city }} </td>
+                    </tr>
+                    <tr>
+                        <td>Code postale:</td>
+                        <td>{{ property.cp }}</td>
+                    </tr>
+                    <tr>
+                        <td>Adresse:</td>
+                        <td>{{ property.address }}</td>
+                    </tr>
+                </table>
             </div>
 
         </div>
