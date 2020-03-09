@@ -6,6 +6,8 @@ use App\Entity\Property;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
+use InvalidArgumentException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @method Property|null find($id, $lockMode = null, $lockVersion = null)
@@ -62,7 +64,6 @@ class PropertyRepository extends ServiceEntityRepository
         ;
     }
     */
-
 
     public function findOneById($userId): ?Property
     {

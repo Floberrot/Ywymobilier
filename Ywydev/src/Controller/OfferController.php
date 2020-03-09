@@ -37,13 +37,15 @@ class OfferController extends AbstractController
     /**
      * @Route ("/offres",name="Offres")
      * @param PropertyRepository $repository
+     * @param UserRepository $userRepository
+     * @param $page
      * @return Response
      */
     public function index(PropertyRepository $repository, UserRepository $userRepository): Response
     {
-
         $user = $userRepository->findAll();
         $properties = $repository->findLatest();
+
         return $this->render('/pages/offres.html.twig', [
             'properties' => $properties,
             'user' =>$user
@@ -58,9 +60,14 @@ class OfferController extends AbstractController
      */
     public function getOffer(PropertyRepository $repository): Response
     {
-        $properties = $repository->findLatest();
+        /* @var \App\Entity\Property[] $properties */
+        $properties = $repository->findAll();
         $encoders = array(new JsonEncoder());
         $normalizers = array(new ObjectNormalizer());
+
+        foreach ($properties as $property) {
+            $property->setUser(null);
+        }
 
         $serializer = new Serializer($normalizers, $encoders);
         $productSerialized = $serializer->serialize($properties, 'json');
@@ -87,6 +94,7 @@ class OfferController extends AbstractController
      */
     public function show(\App\Entity\Property $property, string $slug): Response
     {
+        $user = new User();
         if ($property->getSlug() !== $slug) {
             return $this->redirectToRoute('property.show', [
                 'id' => $property->getId(),
@@ -96,7 +104,7 @@ class OfferController extends AbstractController
         return $this->render('/pages/show.html.twig', [
             'property' => $property,
             'current_menu' => 'properties',
-            'user'=> User::class
+            'user'=> $user
         ]);
     }
 
