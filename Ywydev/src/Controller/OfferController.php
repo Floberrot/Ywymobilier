@@ -37,13 +37,15 @@ class OfferController extends AbstractController
     /**
      * @Route ("/offres",name="Offres")
      * @param PropertyRepository $repository
+     * @param UserRepository $userRepository
+     * @param $page
      * @return Response
      */
     public function index(PropertyRepository $repository, UserRepository $userRepository): Response
     {
-
         $user = $userRepository->findAll();
         $properties = $repository->findLatest();
+
         return $this->render('/pages/offres.html.twig', [
             'properties' => $properties,
             'user' =>$user

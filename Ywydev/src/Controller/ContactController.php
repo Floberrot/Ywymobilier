@@ -65,9 +65,11 @@ class ContactController extends AbstractController
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->persist($contact);
             $this->em->flush();
+            $this->addFlash('success', 'Merci beaucoup pour le message! On le lira avec attention!');
             return $this->redirectToRoute('about');
 
         }
