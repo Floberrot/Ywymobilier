@@ -52,14 +52,14 @@
 
                     <div id="popup1" class="overlay">
                         <div class="popup">
-                            <h4>Informations du propriétaire du logement "{{ property.title }}" situé
-                                a {{ property.address }}</h4>
+                            <p>Informations du propriétaire du logement <strong>{{ property.title }}</strong> situé
+                                à <strong>{{ property.address }}</strong></p>
                             <a class="close" href="#">&times;</a>
                             <div class="content">
                                 <table>
                                     <tr>
                                         <th>Nom</th>
-                                        <th>{{user.id}}</th>
+                                        <th>{{property.user}}</th>
                                     </tr>
                                     <tr>
                                         <td>E-mail</td>

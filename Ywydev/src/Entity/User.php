@@ -61,6 +61,13 @@ class User implements UserInterface, \Serializable
      */
     private $properties;
 
+    /**
+     * @ORM\Column(type="string", unique=true, nullable=true)
+     */
+    private $apiToken;
+
+
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -248,6 +255,22 @@ return null;
         }
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getApiToken()
+    {
+        return $this->apiToken;
+    }
+
+    /**
+     * @param mixed $apiToken
+     */
+    public function setApiToken($apiToken): void
+    {
+        $this->apiToken = $apiToken;
     }
 
 }

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil{% endblock %}
+
+
+{% block body %}
+    {% for users in user %}
+{#        <h1>Bonjour {{ user.first_name }}</h1>#}
+
+    {% endfor %}
+    <div>
+        <h1>Votre profil</h1>
+        <p>Ces données sont accessible que pour vous, elles sont aussi protégées</p>
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Numéro</th>
+            <th scope="col">Adresse mail</th>
+            <th scope="col">Statut</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>prop/etu</td>
+        </tr>
+        </tbody>
+    </table>
+
+        <a href="{{ path('logout') }}" class="btn btn-danger">Se déconnecter</a>
+    </div>
+{% endblock %}
