@@ -3,7 +3,13 @@
 {% block title %}A propos{% endblock %}
 
 {% block body %}
+
     <div class="container">
+        {%  for message in app.flashes('success') %}
+        <div class="alert alert-success " id="disap">
+            {{ message }}
+        </div>
+            {% endfor %}
         <div class="ct-pageWrapper" id="ct-js-wrapper">
             <section class="company-heading intro-type">
                 <div class="header">
@@ -17,7 +23,7 @@
                 <h3>Pour les étudiants</h3>
                 <p class="text-center">Nous avons créé Ywymobilier afin d'aider les
                     nouveaux étudiants lyonnais à trouver un logement. Cette
-                    recherche est très souvent source de stress, on a donc créer cette application pour diminuer ce
+                    recherche est très souvent source de stress, on a donc créé cette application pour diminuer ce
                     stress.</p>
 
             </section>
@@ -25,13 +31,13 @@
                     <div class="text-center">
                         <h2 class="text-image">Notre objectif</h2>
                         <br>
-                        <h3 class="text-image">Cibler la recherce d'appartement exclusivement pour les étudiants</h3>
+                        <h3 class="text-image">Cibler la recherche d'appartement exclusivement pour les étudiants</h3>
                         <br>
                         <p class="ct-u-size22 ct-u-fontWeight300 ct-u-marginBottom60 text-desc-image">Les propriétaires devront
                             ajouter
-                            des offres de location que pour les étudiants<br>
+                            des offres de location QUE pour les étudiants<br>
                             Il faut que les propriétaires se rendent compte de la difficulté pour les étudiants de
-                            trouver un logement.
+                            trouver un logement dans les grandes villes tel que Lyon.
                             <br> <br>Voici les valeurs que nous voulons transmettre</p>
                     </div>
 
@@ -54,7 +60,7 @@
                             <div class="company-icons-white">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i>
                                 <p>Rapide</p>
-                                <p class="company-icons-subtext hidden-xs">Délais court pour les réponses</p>
+                                <p class="company-icons-subtext hidden-xs">Délais court pour les réponses (on compte sur vous!)</p>
                             </div>
                         </div>
                     </div>

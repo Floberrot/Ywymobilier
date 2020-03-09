@@ -9,6 +9,7 @@
 import '../css/app.css';
 import '../js/login.js';
 import '../js/filter.js';
+import '../js/disapear.js';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
