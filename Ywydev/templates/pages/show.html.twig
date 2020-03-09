@@ -43,11 +43,13 @@
                 <div class="col-md-3">
                     <h1>{{ property.title }}</h1>
                     <h2>{{ property.rooms }} pièces - {{ property.surface }} m²</h2>
-                    <div class="text-primary" style="font-size: 4rem">
-                        {{ property.formattedPrice }} €
+                    <div class="text" style="font-size: 4rem; color: deepskyblue;">
+                        <strong>{{ property.formattedPrice }} €</strong>
                     </div>
 
-                    <a class="btn btn-primary" href="#popup1">Contactez le propriétaire</a>
+                    <a class="btn" id="log" href="#popup1">Contactez le propriétaire</a>
+                    <br>
+                    <br>
                     <p>Privilégiez les appels plutot que les mails et sms, ça montre votre ambition et votre motivation et en plus c'est plus humain!</p>
 
 
