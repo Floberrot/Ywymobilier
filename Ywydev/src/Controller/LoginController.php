@@ -89,6 +89,7 @@ class LoginController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/logout", name="app_logout")
      */
@@ -104,12 +105,10 @@ class LoginController extends AbstractController
      */
     public function profile(UserRepository $userRepository)
     {
-        $user = $userRepository->findBy([
-            'id' => $userRepository->find($this->getUser()->getId())
-        ]);
+        $user = new User();
 
         return $this->render('security/profile.html.twig', [
-            'user'=>$user
+            'users'=>$user
         ]);
     }
     public function forgottenPassword(): Response
