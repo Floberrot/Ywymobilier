@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil{% endblock %}
+
+
+{% block body %}
+    <div class="container text-center">
+    <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
+
+    <h1 class="title-base">Bonjour {{ app.user.username }}!</h1>
+    <div>
+        <p>Ces données sont accessible que pour vous, elles sont aussi protégées</p>
+    </div>
+    </div>
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Vos informations</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Numéro</th>
+            <th scope="col">Adresse mail</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">{{ app.user.id }}</th>
+            <td>{{ app.user.firstName }}</td>
+            <td>{{ app.user.lastName }}</td>
+            <td>{{ app.user.num }}</td>
+            <td>{{ app.user.email }}</td>
+        </tr>
+        </tbody>
+    </table>
+        {% if app.user %}
+        {% if 'Proprietaire' in app.user.roles %}
+        <p>Si vous voulez ajouer un bien, modifier ceux que vous avez en ligne ou encore en supprimer un, vous pouvez le faire en cliquant sur le lien adminitration</p>
+        <a href="{{ path('admin.property.index') }}" class="btn btn-success">Administration</a>
+        {% endif %}
+        {% endif %}
+        <a href="{{ path('logout') }}" class="btn btn-danger">Se déconnecter</a>
+
+
+{% endblock %}

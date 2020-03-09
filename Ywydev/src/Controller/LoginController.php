@@ -65,6 +65,7 @@ class LoginController extends AbstractController
             'form' => $formUser->createView()
         ]);
 
+
     }
 
     /**
@@ -88,6 +89,7 @@ class LoginController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/logout", name="app_logout")
      */
@@ -95,4 +97,24 @@ class LoginController extends AbstractController
     {
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
+
+    /**
+     * @Route("/profil", name="profil")
+     * @param UserRepository $userRepository
+     * @return Response
+     */
+    public function profile(UserRepository $userRepository)
+    {
+        $user = new User();
+
+        return $this->render('security/profile.html.twig', [
+            'users'=>$user
+        ]);
+    }
+    public function forgottenPassword(): Response
+    {
+
+        return $this->render('security/forgotten_password.html.twig');
+    }
+
 }

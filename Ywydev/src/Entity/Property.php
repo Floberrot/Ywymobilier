@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\This;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -85,6 +86,7 @@ class Property
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="properties")
      * @ORM\JoinColumn(nullable=false)
+     * @MaxDepth(1)
      */
     private $user;
 

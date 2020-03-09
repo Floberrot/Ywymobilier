@@ -57,6 +57,7 @@ class AdminPropertyController extends AbstractController
     /**
      * @\Symfony\Component\Routing\Annotation\Route("/admin/property/create", name="admin.property.new")
      * @param Request $request
+     * @param UserRepository $userRepository
      * @return Response
      */
     public function new(Request $request, UserRepository $userRepository)
