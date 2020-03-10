@@ -38,7 +38,6 @@ class OfferController extends AbstractController
      * @Route ("/offres",name="Offres")
      * @param PropertyRepository $repository
      * @param UserRepository $userRepository
-     * @param $page
      * @return Response
      */
     public function index(PropertyRepository $repository, UserRepository $userRepository): Response
@@ -101,6 +100,7 @@ class OfferController extends AbstractController
                 'slug' => $property->getSlug()
             ], 301);
         }
+
         return $this->render('/pages/show.html.twig', [
             'property' => $property,
             'current_menu' => 'properties',
