@@ -2,14 +2,19 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\This;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Entity\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
+ * @Vich\Uploadable
  */
 class Property
 {
@@ -84,6 +89,69 @@ class Property
     private $locate = false;
 
     /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="properties", fileNameProperty="imageName")
+     * @var \Symfony\Component\HttpFoundation\File\File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string|null
+     */
+    private $imageName;
+
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     *
+     * @param \Symfony\Component\HttpFoundation\File\File $imageFile
+     * @throws \Exception
+     */
+    public function setImageFile(\Symfony\Component\HttpFoundation\File\File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?\Symfony\Component\HttpFoundation\File\File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updatedAt = $updated_at;
+
+        return $this;
+    }
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="properties")
      * @ORM\JoinColumn(nullable=false)
      * @MaxDepth(1)
@@ -93,6 +161,9 @@ class Property
     public function __construct()
     {
         $this->created_at = new \DateTime();
+        $this->updatedAt = new \DateTime();
+        $this->imageFile = new ArrayCollection();
+        $this->imageName = new ArrayCollection();
 
     }
 

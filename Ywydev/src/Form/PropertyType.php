@@ -6,6 +6,8 @@ use App\Entity\Property;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PropertyType extends AbstractType
 {
@@ -38,7 +40,7 @@ class PropertyType extends AbstractType
                 'label'=> 'Adresse'
             ])
             ->add('cp', null, [
-                'label'=> 'Postal Code'
+                'label'=> 'Code postal'
             ])
             ->add('locate', null, [
                 'label'=> 'Is it rented?'
