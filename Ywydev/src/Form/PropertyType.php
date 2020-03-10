@@ -6,6 +6,7 @@ use App\Entity\Property;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PropertyType extends AbstractType
@@ -43,10 +44,6 @@ class PropertyType extends AbstractType
             ])
             ->add('locate', null, [
                 'label'=> 'Is it rented?'
-            ])
-            ->add('imageFile', VichImageType::class,[
-                'label'=> 'Choisissez vos images du logement'
-
             ])
         ;
     }

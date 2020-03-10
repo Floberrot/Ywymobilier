@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\This;
 use Cocur\Slugify\Slugify;
@@ -9,6 +10,7 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Entity\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
@@ -160,6 +162,8 @@ class Property
     {
         $this->created_at = new \DateTime();
         $this->updatedAt = new \DateTime();
+        $this->imageFile = new ArrayCollection();
+        $this->imageName = new ArrayCollection();
 
     }
 
