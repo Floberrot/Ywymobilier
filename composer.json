@@ -5,6 +5,7 @@
         "php": "^7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "cloudinary/cloudinary_php": "dev-master",
         "cocur/slugify": "^4.0",
         "doctrine/doctrine-bundle": "^2.0",
         "sensio/framework-extra-bundle": "^5.1",
@@ -31,8 +32,7 @@
         "symfony/web-link": "5.0.*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.0.*",
-        "cloudinary/cloudinary_php": "dev-master"
-
+        "vich/uploader-bundle": "^1.13"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",
