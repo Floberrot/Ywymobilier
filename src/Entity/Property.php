@@ -27,12 +27,12 @@ class Property
 
     /**
      *  @Assert\Length(min=5, max=50)
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50)
      */
     private $title;
 
     /**
-     * @Assert\Length(min=5, max=255)
+     * @Assert\Length(min=5, max=150)
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
@@ -63,18 +63,18 @@ class Property
 
     /**
      * @Assert\Length(min=1, max=50)
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=30)
      */
     private $city;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=100)
      */
     private $address;
 
     /**
      * @Assert\Regex("/^[0-9]{5}$/")
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=10)
      */
     private $cp;
 
