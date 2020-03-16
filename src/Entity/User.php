@@ -62,7 +62,7 @@ class User implements UserInterface, \Serializable
     private $properties;
 
     /**
-     * @ORM\Column(type="string", unique=true, nullable=true)
+     * @ORM\Column(type="string", unique=true, nullable=true, length=191)
      */
     private $apiToken;
 
