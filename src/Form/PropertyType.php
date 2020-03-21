@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Property;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
@@ -44,6 +45,10 @@ class PropertyType extends AbstractType
             ])
             ->add('locate', null, [
                 'label'=> 'Is it rented?'
+            ])
+            ->add('pictureFiles', FileType::class, [
+                'required' =>false,
+                'multiple'=>true
             ])
         ;
     }
