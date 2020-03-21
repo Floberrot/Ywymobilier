@@ -3,14 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\This;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 use Symfony\Component\Validator\Constraints as Assert;
-use Vich\UploaderBundle\Entity\File;
+use Symfony\Component\Validator\Constraints\File as File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
@@ -95,9 +95,22 @@ class Property
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="property", orphanRemoval=true, cascade={"persist"})
+     */
+    private $pictures;
+
+    /**
+     * @Assert\All({
+     * @Assert\Image(mimeTypes="image/jpeg")
+     * })
+     */
+    private $pictureFiles;
+
     public function __construct()
     {
         $this->created_at = new \DateTime();
+        $this->pictures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -257,6 +270,61 @@ class Property
         $this->user = $user;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Picture[]
+     */
+    public function getPictures(): Collection
+    {
+        return $this->pictures;
+    }
+
+    public function addPicture(Picture $picture): self
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures[] = $picture;
+            $picture->setProperty($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Picture $picture): self
+    {
+        if ($this->pictures->contains($picture)) {
+            $this->pictures->removeElement($picture);
+            // set the owning side to null (unless already changed)
+            if ($picture->getProperty() === $this) {
+                $picture->setProperty(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPictureFiles()
+    {
+        return $this->pictureFiles;
+    }
+
+    /**
+     * @param $pictureFiles
+     * @return Property
+     */
+    public function setPictureFiles($pictureFiles): self
+    {
+        foreach ($pictureFiles as $pictureFile){
+            $picture = new Picture();
+            $picture->setImageFile($pictureFile);
+            $this->addPicture($picture);
+        }
+        $this->pictureFiles = $pictureFiles;
+        return $this;
+
     }
 
 }
