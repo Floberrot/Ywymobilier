@@ -73,7 +73,8 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
-            "@auto-scripts"
+            "php bin/console cache:clear",
+            "chmod -R 777 public/"
         ],
         "post-update-cmd": [
             "@auto-scripts"
