@@ -5,8 +5,8 @@
 #SetEnv ZEND_OPTIMIZER 1
 #SetEnv PHP_VER 7_2
 
-RewriteEngine on
-RewriteBase /
-
-RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule ^(.*)$ /public/$1 [L]
+#RewriteEngine on
+#RewriteBase /
+#
+#RewriteCond %{REQUEST_URI} !^/public/
+#RewriteRule ^(.*)$ /public/$1 [L]

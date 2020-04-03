@@ -2,14 +2,17 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Picture;
 use App\Form\PropertyType;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use phpDocumentor\Reflection\Types\AbstractList;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\PropertyRepository;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -64,6 +67,7 @@ class AdminPropertyController extends AbstractController
     {
 
         $property = new Property();
+        $image = new Picture();
         $form = $this->createForm(PropertyType::class, $property);
         $form->handleRequest($request);
 
@@ -78,7 +82,8 @@ class AdminPropertyController extends AbstractController
         }
         return $this->render('/admin/property/new.html.twig', [
             'property' => $property,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'picture' =>$image
         ]);
 
     }
@@ -89,10 +94,12 @@ class AdminPropertyController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function edit(Property $property, Request $request)
+    public function edit(Property $property, Request $request )
     {
         $form = $this->createForm(PropertyType::class, $property);
         $form->handleRequest($request);
+        $image = new Picture();
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();
@@ -102,7 +109,9 @@ class AdminPropertyController extends AbstractController
         }
         return $this->render('/admin/property/edit.html.twig', [
             'property' => $property,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'picture' =>$image
+
         ]);
     }
 

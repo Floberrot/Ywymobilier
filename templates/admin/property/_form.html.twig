@@ -10,11 +10,12 @@
     <div class="col md-4">
         <div class="row flex">
 
-        {% for picture in property.pictures %}
-        <div class="col">
-            <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" width="100">
+        <div class="col-md-4">
+            <img src="{{ vich_uploader_asset(picture, 'imageFile') }}">
+
+{#<img src="/images/properties/5e6771cac2ae2487829612.jpg">#}
         </div>
-        {% endfor %}
+
         </div>
     </div>
 </div>
