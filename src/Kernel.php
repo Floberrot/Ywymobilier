@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symfony\Bundle\WebProfilerBundle;
 use Vich\UploaderBundle\VichUploaderBundle;
+use Liip\ImagineBundle\LiipImagineBundle;
 
 class Kernel extends BaseKernel
 {
