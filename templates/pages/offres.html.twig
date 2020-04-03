@@ -14,7 +14,7 @@
             {#            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>#}
         </form>
         <div class="row row-cols-1 row-cols-md-3">
-            {#            {% for property in properties %}#}
+                        {% for property in properties %}
             <div v-for="property in filteredProperty" class="col mb-4">
                 <div class="card">
                     <img src="" class="card-img-top" alt="...">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            {#            {% endfor %}#}
+                       {% endfor %}
         </div>
     </div>
 

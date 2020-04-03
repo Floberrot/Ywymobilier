@@ -44,11 +44,12 @@ class PropertyType extends AbstractType
                 'label'=> 'Code postal'
             ])
             ->add('locate', null, [
-                'label'=> 'Is it rented?'
+                'label'=> 'Est ce déja loué?'
             ])
             ->add('pictureFiles', FileType::class, [
                 'required' =>false,
-                'multiple'=>true
+                'multiple'=>true,
+                'label'=>'Les photos de vos biens'
             ])
         ;
     }

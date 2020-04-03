@@ -183,7 +183,7 @@ return null;
           $this->username,
           $this->email,
           $this->password,
-            $this->roles,
+//            $this->roles,
 
       ]);
     }
@@ -204,7 +204,7 @@ return null;
             $this->username,
             $this->email,
             $this->password,
-            $this->roles
+//            $this->roles
             ) = unserialize($serialized, ['allowed_classes'=>false]);
     }
 
