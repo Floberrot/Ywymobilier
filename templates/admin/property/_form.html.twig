@@ -11,9 +11,7 @@
         <div class="row flex">
 
         <div class="col-md-4">
-            <img src="{{ vich_uploader_asset(picture, 'imageFile') }}">
 
-{#<img src="/images/properties/5e6771cac2ae2487829612.jpg">#}
         </div>
 
         </div>
@@ -33,3 +31,14 @@
 {{ form_widget(form) }}
 <button class="btn btn-success">{{ button|default('Ajouter ce bien') }}</button>
 {{ form_end(form) }}
+
+{% for picture in property.pictures %}
+    <div class="col" style="width: 150px; margin:5px">
+        <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" width="100">
+        <form method="post" action="{{ path('admin.picture.delete', {id: picture.id}) }}" style="display: inline-block" onsubmit="return confirm('êtes-vous sûr ?')">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ picture.id) }}">
+            <button class="btn btn-danger">Supprimer</button>
+        </form>
+    </div>
+{% endfor %}

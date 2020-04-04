@@ -8,28 +8,30 @@
         <input v-model="searchText" class="form-control mr-sm-5" type=" search" placeholder="Rechercher l'appartement de vos rêves"
                aria-label="">
         <br>
-        <form class="form-inline my-2 my-lg-0">
 
-
-            {#            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>#}
-        </form>
         <div class="row row-cols-1 row-cols-md-3">
-                        {% for property in properties %}
+            {% for property in properties %}
+
             <div v-for="property in filteredProperty" class="col mb-4">
                 <div class="card">
-                    <img src="" class="card-img-top" alt="...">
+                    {% for picture in property.pictures %}
+                    <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" width="150">
+                    {% endfor %}
                     <div class="card-body">
-                        <h5 class="card-title"><a
-                                    :href="`/offres/${ property.slug }.${ property.id}`">
-                                ${ property.title }</a></h5>
-                        <p class="card-text"><b>${ property.price }€</b></p>
-                        <small class="text-muted">${ property.city } (${ property.cp })</small></p>
+                        <h5 class="card-title">
+                            <a href="/offres/{{ property.slug }}.{{ property.id}}">
+                                {{ property.title }}
+                            </a></h5>
+                        <p class="card-text"><b>{{ property.price }}€</b></p>
+                        <small class="text-muted">{{ property.city }} ({{ property.cp }})</small></p>
                     </div>
                 </div>
             </div>
-                       {% endfor %}
         </div>
+        {% endfor %}
+
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.js"></script>

@@ -17,7 +17,7 @@ use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
-class OfferController extends AbstractController
+class   OfferController extends AbstractController
 {
     /**
      * @var PropertyRepository
@@ -43,7 +43,8 @@ class OfferController extends AbstractController
     public function index(PropertyRepository $repository, UserRepository $userRepository): Response
     {
         $user = $userRepository->findAll();
-        $properties = $repository->findLatest();
+        $properties = $repository->findall();
+//        dd($properties);
 
         return $this->render('/pages/offres.html.twig', [
             'properties' => $properties,
