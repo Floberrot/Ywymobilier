@@ -4,6 +4,7 @@ body {
     min-height: 100vh;
 }
 
+
 .underline {
     border-bottom: 1px solid black;
     padding-bottom: 15px;
@@ -78,6 +79,7 @@ body {
 .title-base {
     margin-bottom: 3%;
     padding-bottom: 3%;
+    text-align: center;
 }
 
 

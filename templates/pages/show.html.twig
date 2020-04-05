@@ -16,7 +16,7 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 {% for picture in property.pictures %}
-                                    <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" width="320">
+                                    <img src="{{ vich_uploader_asset(picture, 'imageFile') }}">
                                 {% endfor %}
                             </div>
 {#                            <div class="carousel-item">#}

@@ -22,10 +22,10 @@
             <div class="row flex">
                 <div class="row row-cols-1 row-cols-md-3">
                     {% for property in properties %}
-                        <div class="col mb-4">
+                        <div class="col mb-3">
                             <div class="card">
                                 {% for picture in property.pictures %}
-                                <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" style="width: 300px; height: 200px;">
+                                <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" style="width: auto; height:auto">
                                 {% endfor %}
                                 <div class="card-body">
                                     <h5 class="card-title"><a
