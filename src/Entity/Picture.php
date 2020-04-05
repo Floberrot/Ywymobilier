@@ -38,7 +38,7 @@ class Picture
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Property", inversedBy="pictures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $property;
 
