@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\PictureRepository;
 use App\Repository\PropertyRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ObjectManager;
@@ -38,17 +39,21 @@ class   OfferController extends AbstractController
      * @Route ("/offres",name="Offres")
      * @param PropertyRepository $repository
      * @param UserRepository $userRepository
+     * @param PictureRepository $pictureRepository
      * @return Response
      */
-    public function index(PropertyRepository $repository, UserRepository $userRepository): Response
+    public function index(PropertyRepository $repository, UserRepository $userRepository, PictureRepository $pictureRepository): Response
     {
         $user = $userRepository->findAll();
         $properties = $repository->findall();
+        $picture = $pictureRepository->findAll();
+
 //        dd($properties);
 
         return $this->render('/pages/offres.html.twig', [
             'properties' => $properties,
-            'user' =>$user
+            'user' =>$user,
+            'picture'=>$picture
         ]);
 
     }

@@ -9,13 +9,17 @@
                aria-label="">
         <br>
 
-        <div class="row row-cols-1 row-cols-md-3">
+        <div class="row ">
             {% for property in properties %}
 
-            <div v-for="property in filteredProperty" class="col mb-4">
-                <div class="card">
+            <div v-for="property in filteredProperty" class="col-4">
+                <div class="card mb-4">
                     {% for picture in property.pictures %}
-                    <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" width="150">
+                        {% if property.pictures %}
+                            <img src="{{ vich_uploader_asset(picture, 'imageFile')}}" alt="card-img-top" style="width: 150px;">
+                        {% else %}
+                            <img src="{{ '/images/empty.jpg' }}" alt="card-img-top" style="width: 150px; ">
+                        {% endif %}
                     {% endfor %}
                     <div class="card-body">
                         <h5 class="card-title">
@@ -23,7 +27,7 @@
                                 {{ property.title }}
                             </a></h5>
                         <p class="card-text"><b>{{ property.price }}€</b></p>
-                        <small class="text-muted">{{ property.city }} ({{ property.cp }})</small></p>
+                        <small class="text-muted">{{ property.city }} ({{ property.cp }})</small>
                     </div>
                 </div>
             </div>

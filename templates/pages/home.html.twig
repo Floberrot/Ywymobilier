@@ -24,7 +24,9 @@
                     {% for property in properties %}
                         <div class="col mb-4">
                             <div class="card">
-                                <img src="/images/exampl1.jpg" class="card-img-top" alt="...">
+                                {% for picture in property.pictures %}
+                                <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" style="width: 300px; height: 200px;">
+                                {% endfor %}
                                 <div class="card-body">
                                     <h5 class="card-title"><a
                                                 href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">
