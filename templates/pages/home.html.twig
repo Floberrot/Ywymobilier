@@ -24,7 +24,7 @@
                     {% for property in properties %}
                         <div class="col mb-3">
                             <div class="card">
-                                {% for picture in property.pictures %}
+                                {% for picture in property.pictures |first %}
                                 <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" style="width: auto; height:auto">
                                 {% endfor %}
                                 <div class="card-body">

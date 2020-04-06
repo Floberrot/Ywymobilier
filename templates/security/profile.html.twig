@@ -34,7 +34,7 @@
     </table>
         {% if app.user %}
         {% if 'Proprietaire' in app.user.roles %}
-        <p>Si vous voulez ajouer un bien, modifier ceux que vous avez en ligne ou encore en supprimer un, vous pouvez le faire en cliquant sur le lien adminitration</p>
+        <p>Si vous voulez ajouter un bien, modifier ceux que vous avez en ligne ou encore en supprimer un, vous pouvez le faire en cliquant sur le lien adminitration</p>
         <a href="{{ path('admin.property.index') }}" class="btn btn-success">Administration</a>
         {% endif %}
         {% endif %}

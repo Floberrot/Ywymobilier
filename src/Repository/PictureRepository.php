@@ -40,7 +40,7 @@ class PictureRepository extends ServiceEntityRepository
     public function findOneById($id)
     {
         return $this->createQueryBuilder('p')
-            ->setMaxResults($id)
+            ->setMaxResults(1)
             ->getQuery()
             ->getResult();
     }
