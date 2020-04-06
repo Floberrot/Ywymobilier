@@ -26,9 +26,10 @@ class AdminPictureController extends AbstractController {
      * @param Picture $picture
      * @param Request $request
      * @return RedirectResponse
-     * @Route("/(id)", name="admin.picture.delete",methods="DELETE")
+     * @Route("/admin/property)", name="admin.picture.delete",methods="DELETE")
      */
     public function delete(Picture $picture, Request $request){
+
         $propertyId = $picture->getProperty()->getId();
         if ($this->isCsrfTokenValid('delete' . $picture->getId(), $request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
