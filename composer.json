@@ -77,7 +77,8 @@
         },
         "post-install-cmd": [
             "php bin/console cache:clear",
-            "chmod -R 777 public/"
+            "chmod -R 777 public/",
+            "yarn watch"
         ],
         "post-update-cmd": [
             "@auto-scripts"
