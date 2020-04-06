@@ -5,10 +5,10 @@
 {% block body %}
     <div id="app">
         <h1 class="title-base marginTop40">Voici les appartements disponibles</h1>
-{#        <input v-model="searchText" class="form-control mr-sm-5" type=" search"#}
-{#               placeholder="Rechercher l'appartement de vos rêves"#}
-{#               aria-label="">#}
-{#        <br>#}
+        {#        <input v-model="searchText" class="form-control mr-sm-5" type=" search"#}
+        {#               placeholder="Rechercher l'appartement de vos rêves"#}
+        {#               aria-label="">#}
+        {#        <br>#}
 
         <!-- <div {#v-for="property in filteredProperty" #} class="card "> -->
         <div class="row">
@@ -16,14 +16,17 @@
                 <div class="col-sm-4">
                     <a href="/offres/{{ property.slug }}.{{ property.id }}">
                         <div class="card mb-3">
-                            {% for picture in property.pictures | first%}
-{#                                    {{ dump(property.pictures) }}#}
+                            {% for picture in property.pictures %}
+                                {% if property.pictures is empty %}
+                                    <img src="/images/properties/empty.jpg" alt="card-img-top">
+                                {% elseif property.pictures is not empty %}
                                     <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="card-img-top">
+                                {% endif %}
 
 
                             {% endfor %}
 
-{#                            <img src="/images/empty.jpg" alt="card-img-top">#}
+                            {#                            <img src="/images/empty.jpg" alt="card-img-top">#}
 
                             <div class="card-body">
                                 <h5 class="card-title">
