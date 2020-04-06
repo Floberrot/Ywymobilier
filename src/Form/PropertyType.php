@@ -32,7 +32,7 @@ class PropertyType extends AbstractType
                 'label'=> 'Etages'
             ])
             ->add('price', null, [
-                'label'=> 'Loyer'
+                'label'=> 'Loyer (prix en €)'
             ])
             ->add('city', null, [
                 'label'=> 'Ville'
