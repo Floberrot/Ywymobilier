@@ -7,6 +7,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,23 +24,20 @@ class AdminPictureController extends AbstractController {
     }
 
     /**
+     * @Route("/admin/property/{id}", name="admin.picture.delete", methods="DELETE")
      * @param Picture $picture
      * @param Request $request
      * @return RedirectResponse
-     * @Route("/admin/property)", name="admin.picture.delete",methods="DELETE")
      */
-    public function delete(Picture $picture, Request $request){
+    public function delete(Picture $picture, Request $request) {
 
-        $propertyId = $picture->getProperty()->getId();
-        if ($this->isCsrfTokenValid('delete' . $picture->getId(), $request->get('_token'))) {
+
             $em = $this->getDoctrine()->getManager();
             $em->remove($picture);
             $em->flush();
-            $this->addFlash('success', 'Bien supprimé avec succès');
-            dd($picture);
+//            return new JsonResponse(['success' => 1]);
+            return $this->redirectToRoute('admin.property.index');
 
-        }
-        return $this->redirectToRoute('admin.property.edit', ['id' => $propertyId]);
+
     }
-
 }
