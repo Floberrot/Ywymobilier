@@ -46,7 +46,7 @@ class   OfferController extends AbstractController
     {
         $user = $userRepository->findAll();
         $properties = $repository->findall();
-        $picture = $pictureRepository->findAll();
+        $picture = $pictureRepository->findOneById('1');
 
 //        dd($properties);
 

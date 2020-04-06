@@ -18,14 +18,12 @@
                         <div class="card mb-3">
                             {% for picture in property.pictures %}
                                 {% if property.pictures is empty %}
-                                    <img src="/images/properties/empty.jpg" alt="card-img-top">
-                                {% elseif property.pictures is not empty %}
+                                    <img src="{{ '/images/properties/empty.jpg'}}" alt="card-img-top" style="width: 100%; height:auto;">
+                                {% else %}
                                     <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="card-img-top">
                                 {% endif %}
 
-
-                            {% endfor %}
-
+                            {% endfor%}
                             {#                            <img src="/images/empty.jpg" alt="card-img-top">#}
 
                             <div class="card-body">
