@@ -76,10 +76,7 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
-            "php bin/console cache:clear",
-            "chmod -R 777 public/",
-            "yarn install",
-            "yarn encore dev"
+            
         ],
         "post-update-cmd": [
             "@auto-scripts"
