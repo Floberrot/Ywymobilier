@@ -16,7 +16,7 @@
                 <div class="col-sm-4">
                     <a href="/offres/{{ property.slug }}.{{ property.id }}">
                         <div class="card mb-3">
-                            {% for picture in property.pictures %}
+                            {% for picture in property.pictures | first %}
                                 {% if property.pictures is empty %}
                                     <img src="{{ '/images/properties/empty.jpg'}}" alt="card-img-top" style="width: 100%; height:auto;">
                                 {% else %}
