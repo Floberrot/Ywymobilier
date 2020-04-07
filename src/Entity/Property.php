@@ -26,7 +26,7 @@ class Property
     private $id;
 
     /**
-     *  @Assert\Length(min=5, max=50)
+     * @Assert\Length(min=5, max=50)
      * @ORM\Column(type="string", length=50)
      */
     private $title;
@@ -129,7 +129,8 @@ class Property
 
         return $this;
     }
-    public function getSlug():string
+
+    public function getSlug(): string
     {
         return (new Slugify())->slugify($this->title);
     }
@@ -195,9 +196,9 @@ class Property
         return $this;
     }
 
-    public function getFormattedPrice():string
+    public function getFormattedPrice(): string
     {
-        return number_format($this->price,0,'',' ');
+        return number_format($this->price, 0, '', ' ');
     }
 
     public function getCity(): ?string
@@ -317,7 +318,7 @@ class Property
      */
     public function setPictureFiles($pictureFiles): self
     {
-        foreach ($pictureFiles as $pictureFile){
+        foreach ($pictureFiles as $pictureFile) {
             $picture = new Picture();
             $picture->setImageFile($pictureFile);
             $this->addPicture($picture);

@@ -11,6 +11,8 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
+    //PERMET DE FAIRE DES TESTS
+
     /**
      * @var UserPasswordEncoderInterface
      */

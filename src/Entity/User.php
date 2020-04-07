@@ -76,14 +76,10 @@ class User implements UserInterface, \Serializable
     private $apiToken;
 
 
-
     public function __construct()
     {
         $this->properties = new ArrayCollection();
     }
-
-
-
 
 
     public function getId(): ?int
@@ -110,13 +106,13 @@ class User implements UserInterface, \Serializable
      */
     public function getUsername(): string
     {
-        return (string) $this->username;
+        return (string)$this->username;
     }
 
 
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return (string)$this->password;
     }
 
     public function setPassword(string $password): self
@@ -169,7 +165,7 @@ class User implements UserInterface, \Serializable
      */
     public function getSalt()
     {
-return null;
+        return null;
     }
 
     /**
@@ -188,13 +184,13 @@ return null;
     public function serialize()
     {
         return serialize([
-          $this->id,
-          $this->username,
-          $this->email,
-          $this->password,
+            $this->id,
+            $this->username,
+            $this->email,
+            $this->password,
 //            $this->roles,
 
-      ]);
+        ]);
     }
 
     /**
@@ -214,7 +210,7 @@ return null;
             $this->email,
             $this->password,
 //            $this->roles
-            ) = unserialize($serialized, ['allowed_classes'=>false]);
+            ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 
     public function setUsername(string $username): self
