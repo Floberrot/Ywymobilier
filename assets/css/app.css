@@ -20,8 +20,8 @@ body {
     text-shadow: 0 0 2px #000000
 }
 .background-photo{
-    background: url('/images/lyon.jpg') no-repeat;
-    opacity: 90%;
+    /*background: url('/images/lyon.jpg') no-repeat;*/
+    /*opacity: 90%;*/
 }
 .title-about{
     padding-top: 50px;
@@ -35,9 +35,9 @@ body {
 .header {
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 80%;
+    /*opacity: 80%;*/
     min-height: 200px;
-    background-image: url('/images/header_about.jpg');
+    /*background-image: url('/images/header_about.jpg');*/
 }
 
 .menu-btn-connexion {
