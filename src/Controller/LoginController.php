@@ -49,15 +49,16 @@ class LoginController extends AbstractController
         $formUser->handleRequest($request);
 
 
+
         if ($formUser->isSubmitted() && $formUser->isValid()) {
 
-            $plainPassword = $user->getPassword();
-            $encoded = $encoder->encodePassword($user, $plainPassword);
-            $user->setPassword($encoded);
+                $plainPassword = $user->getPassword();
+                $encoded = $encoder->encodePassword($user, $plainPassword);
+                $user->setPassword($encoded);
 
-            $this->em->persist($user);
-            $this->em->flush();
-            return $this->redirectToRoute('app_login');
+                $this->em->persist($user);
+                $this->em->flush();
+                return $this->redirectToRoute('app_login');
 
         }
         return $this->render('security/inscription.html.twig', [
