@@ -21,7 +21,7 @@ body {
 }
 .background-photo{
     background: url('/images/lyon.jpg') no-repeat;
-    opacity: 90% !important;
+    /*opacity: 90% !important;*/
 }
 .title-about{
     padding-top: 50px;
@@ -34,7 +34,7 @@ body {
 
 .header {
 
-    opacity: 80% !important;
+    /*opacity: 80% !important;*/
     min-height: 200px;
     background: url('/images/header_about.jpg') no-repeat center;
 }
