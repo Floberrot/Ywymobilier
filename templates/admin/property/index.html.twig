@@ -5,53 +5,58 @@
 {% block body %}
 
     {% if app.user %}
-    {% if 'Proprietaire' in app.user.roles %}
+        {% if 'Proprietaire' in app.user.roles %}
 
-<div class="container mt-4">
-    <h1>Gérer les offres:</h1>
+            <div class="container mt-4">
+                <h1>Gérer les offres:</h1>
 
-    {%  for message in app.flashes('success') %}
-    <div class="alert alert-success">
-        {{ message }}
-        {% endfor %}
+                {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                    {% endfor %}
 
-    </div>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Titre</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-        {% for properties in property %}
-        <tr>
-            <td>{{ properties.title }}</td>
-            <td><a href="{{ path('admin.property.edit', {id: properties.id}) }}" class="btn btn-secondary">Modifier</a>
+                    {% for properties in property %}
+                        <tr>
+                            <td>{{ properties.title }}</td>
+                            <td><a href="{{ path('admin.property.edit', {id: properties.id}) }}"
+                                   class="btn btn-secondary">Modifier</a>
 
-            <form method="post" action="{{ path('admin.property.delete', {id: properties.id}) }}" style="display: inline-block" onsubmit="return confirm('Ce bien sera définitivement supprimé, êtes-vous sûr ?')">
-                <input type="hidden" name="_method" value="DELETE">
-                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ properties.id) }}">
-                <button class="btn btn-danger">Supprimer</button>
-            </form>
-            </td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    
-    <div class="text-right">
-        <a href="{{ path('admin.property.new')}}" class="btn btn-success">Ajouter un bien</a>
-    </div>
-</div>
-    {% else %}
-        <h1> <div class="container text-center">
+                                <form method="post" action="{{ path('admin.property.delete', {id: properties.id}) }}"
+                                      style="display: inline-block"
+                                      onsubmit="return confirm('Ce bien sera définitivement supprimé, êtes-vous sûr ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token"
+                                           value="{{ csrf_token('delete' ~ properties.id) }}">
+                                    <button class="btn btn-danger">Supprimer</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="text-right">
+                    <a href="{{ path('admin.property.new') }}" class="btn btn-success">Ajouter un bien</a>
+                </div>
+            </div>
+        {% else %}
+            <h1>
+            <div class="container text-center">
                 <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
 
                 <h1 class="title-base">Oups!</h1>
                 <p>Malheuresement, tu n'as pas accès à cette page... désolé</p>
-    </div>
-    {% endif %}
+            </div>
+        {% endif %}
     {% endif %}
 {% endblock %}

@@ -8,11 +8,6 @@
         <h1 class="title-base">Modifier le bien: {{ property.title }} situé à {{ property.address }}</h1>
         {{ form_start(form) }}
         {{   include('admin/property/_form.html.twig', {form: form, button:'Modifier le bien'}) }}
-
-
     </div>
 
-    <style>
-
-    </style>
 {% endblock %}

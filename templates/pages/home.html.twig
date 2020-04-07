@@ -7,7 +7,8 @@
         <div class="text-center">
             <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
             <p class="text-accueil">
-                Le but du projet <b>YWYmobilier</b> est de faciliter la vie des étudiants à la recherche de logement. Notre
+                Le but du projet <b>YWYmobilier</b> est de faciliter la vie des étudiants à la recherche de logement.
+                Notre
                 objectif est de regrouper de nombreuses demandes de particuliers cherchant des locataires dans Lyon.
                 Vous n'aurez plus qu'à naviguer dans l'onglet <a href="{{ path('Offres') }}">offres</a>, de
                 récupérer les informations qui vous
@@ -25,7 +26,8 @@
                         <div class="col mb-3">
                             <div class="card">
                                 {% for picture in property.pictures | first %}
-                                <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" style="width: auto; height:auto">
+                                    <img src="{{ vich_uploader_asset(picture, 'imageFile') }}"
+                                         style="width: auto; height:auto">
                                 {% endfor %}
                                 <div class="card-body">
                                     <h5 class="card-title"><a

@@ -9,37 +9,38 @@
               crossorigin="anonymous">
     </head>
 
-<div class="text-center">
-    <br>
-    <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
-    <br>
-    <!--#region Connexion User !  -->
+    <div class="text-center">
+        <br>
+        <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
+        <br>
+        <!--#region Connexion User !  -->
 
-    <div class="container col-md-7">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey | trans(error.messageData, 'security') }}</div>
-        {% endif %}
-        <form id="form_connexion" action="{{ path('app_login') }}" method="post">
-            <h1 class="title-base text-center inscription">Connexion</h1>
-            <div class="form-group">
-                <label class="text_form">Nom d'utilisateur</label>
-                <input type="text" id="username" name="_username" class="rounded-pill" autofocus
-                       value="{{ last_username }}">
-            </div>
-            <br>
-            <div class="form-group">
-                <label class="text_form">Mot de passe</label>
-                <input type="password" id="password" name="_password"
-                       class="rounded-pill">
-            </div>
-{#            <div>#}
-{#                <a  href="{{ path('app_forgotten_password') }}">Forgotten password</a>#}
-{#            </div>#}
-            <br>
-            <button id="log" type="submit" class="btn ">Se connecter</button>
-            <p class="no-account"> Vous n'avez pas de compte? <a href="{{ path('inscription') }}" class="links">Inscrivez-vous!</a></p>
-        </form>
+        <div class="container col-md-7">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey | trans(error.messageData, 'security') }}</div>
+            {% endif %}
+            <form id="form_connexion" action="{{ path('app_login') }}" method="post">
+                <h1 class="title-base text-center inscription">Connexion</h1>
+                <div class="form-group">
+                    <label class="text_form">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="_username" class="rounded-pill" autofocus
+                           value="{{ last_username }}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="text_form">Mot de passe</label>
+                    <input type="password" id="password" name="_password"
+                           class="rounded-pill">
+                </div>
+                {#            <div>#}
+                {#                <a  href="{{ path('app_forgotten_password') }}">Forgotten password</a>#}
+                {#            </div>#}
+                <br>
+                <button id="log" type="submit" class="btn ">Se connecter</button>
+                <p class="no-account"> Vous n'avez pas de compte? <a href="{{ path('inscription') }}" class="links">Inscrivez-vous!</a>
+                </p>
+            </form>
+        </div>
     </div>
-</div>
     <!-- endregion -->
 {% endblock %}
