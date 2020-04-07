@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * )
  * @UniqueEntity(
  *     fields={"email"},
- *     message="Pseudo déjà utilisé"
+ *     message="Adresse mail déjà utilisé"
  * )
  */
 class User implements UserInterface, \Serializable
