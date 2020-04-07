@@ -4,6 +4,9 @@
 
 {% block body %}
 
+    {% if app.user %}
+    {% if 'Proprietaire' in app.user.roles %}
+
 <div class="container mt-4">
     <h1>Gérer les offres:</h1>
 
@@ -42,4 +45,8 @@
         <a href="{{ path('admin.property.new')}}" class="btn btn-success">Ajouter un bien</a>
     </div>
 </div>
+    {% else %}
+        <h1>Vous n'avez pas accès a cette page!</h1>
+    {% endif %}
+    {% endif %}
 {% endblock %}
