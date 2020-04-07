@@ -46,7 +46,11 @@
     </div>
 </div>
     {% else %}
-        <h1>Vous n'avez pas accès a cette page!</h1>
+        <h1> <div class="container text-center">
+                <img class="logo-home" src="/images/logo_noir.png" alt="Logo de YWYmobilier">
+
+                <h1 class="title-base">Bonjour {{ app.user.username }}!</h1>
+                <p>Malheuresement, tu n'as pas accès aà cette page... désolé</p>
     {% endif %}
     {% endif %}
 {% endblock %}
