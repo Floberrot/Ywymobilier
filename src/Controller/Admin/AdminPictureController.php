@@ -24,7 +24,7 @@ class AdminPictureController extends AbstractController {
     }
 
     /**
-     * @Route("/admin/property/{id}", name="admin.picture.delete", methods="DELETE")
+     * @Route("{id}", name="admin.picture.delete", methods="DELETE")
      * @param Picture $picture
      * @param Request $request
      * @return RedirectResponse
