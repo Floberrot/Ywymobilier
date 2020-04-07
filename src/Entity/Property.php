@@ -281,6 +281,10 @@ class Property
         return $this->pictures;
     }
 
+    public function getFirstPicture() {
+        return $this->getPictures()->first();
+    }
+
     public function addPicture(Picture $picture): self
     {
         if (!$this->pictures->contains($picture)) {
