@@ -13,8 +13,8 @@
                        aria-label="">
                 <br>
 
-        <!-- <div {#v-for="property in filteredProperty" #} class="card "> -->
-        <div class="row">
+        <!-- <div {##} class="card "> -->
+        <div v-for="property in filteredProperty"  class="row">
             {% for property in properties %}
                 <div class="col-sm-4">
                     <a href="/offres/{{ property.slug }}.{{ property.id }}">

@@ -48,8 +48,6 @@ class LoginController extends AbstractController
         $formUser = $this->createForm(UserType::class, $user);
         $formUser->handleRequest($request);
 
-
-
         if ($formUser->isSubmitted() && $formUser->isValid()) {
 
                 $plainPassword = $user->getPassword();
@@ -59,8 +57,8 @@ class LoginController extends AbstractController
                 $this->em->persist($user);
                 $this->em->flush();
                 return $this->redirectToRoute('app_login');
-
         }
+
         return $this->render('security/inscription.html.twig', [
             'user' => $user,
             'form' => $formUser->createView()
@@ -78,8 +76,6 @@ class LoginController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils, UserRepository $userRepository)
     {
 
-
-//        $user = $userRepository->findAll();
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 

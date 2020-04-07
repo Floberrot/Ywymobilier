@@ -81,24 +81,16 @@ class   OfferController extends AbstractController
 
     }
 
-//    /**
-//     * @Route ("/offres",name="Offres")
-//     */
-//    public function index()
-//    {
-//        return $this->render('/pages/offres.html.twig', [
-//            'current_menu' => 'properties',
-//        ]);
-//    }
-
     /**
      * @Route ("/offres/{slug}.{id}",name="property.show", requirements={"slug": "[a-z0-9/-]*"})
      * @param \App\Entity\Property $property
      * @param string $slug
      * @return Response
+     *
      */
     public function show(\App\Entity\Property $property, string $slug): Response
     {
+        //Methode qui affiche le detail de l'offre
         $user = new User();
         if ($property->getSlug() !== $slug) {
             return $this->redirectToRoute('property.show', [

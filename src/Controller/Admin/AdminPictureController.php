@@ -35,7 +35,6 @@ class AdminPictureController extends AbstractController {
             $em = $this->getDoctrine()->getManager();
             $em->remove($picture);
             $em->flush();
-//            return new JsonResponse(['success' => 1]);
             return $this->redirectToRoute('admin.property.index');
 
 
