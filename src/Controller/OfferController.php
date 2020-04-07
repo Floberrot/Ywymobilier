@@ -46,14 +46,12 @@ class   OfferController extends AbstractController
     {
         $user = $userRepository->findAll();
         $properties = $repository->findall();
-        $picture = $pictureRepository->findOneById('1');
 
 //        dd($properties);
 
         return $this->render('/pages/offres.html.twig', [
             'properties' => $properties,
             'user' =>$user,
-            'picture'=>$picture
         ]);
 
     }
