@@ -25,10 +25,12 @@
                     {% for property in properties %}
                         <div class="col mb-3">
                             <div class="card">
-                                {% for picture in property.pictures | first %}
-                                    <img src="{{ vich_uploader_asset(picture, 'imageFile') }}"
-                                         style="width: auto; height:auto">
-                                {% endfor %}
+                                {% if property.firstPicture %}
+                                    <img src="{{ vich_uploader_asset(property.firstPicture, 'imageFile') }}" alt="card-img-top" style="width: 350px; height: 200px">
+                                {% else %}
+                                    <img src="/images/empty.jpg" alt="card-img-top" style="width: 350px; height: 200px">
+
+                                {% endif %}
                                 <div class="card-body">
                                     <h5 class="card-title"><a
                                                 href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">

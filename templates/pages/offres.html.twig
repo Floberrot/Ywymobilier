@@ -21,9 +21,9 @@
                     <a href="/offres/{{ property.slug }}.{{ property.id }}">
                         <div class="card mb-3">
                             {% if property.firstPicture %}
-                                    <img src="{{ vich_uploader_asset(property.firstPicture, 'imageFile') }}" alt="card-img-top">
+                                    <img src="{{ vich_uploader_asset(property.firstPicture, 'imageFile') }}" alt="card-img-top" style="width: 350px; height: 200px">
                                 {% else %}
-                                    <img src="/images/empty.jpg" alt="card-img-top">
+                                    <img src="/images/empty.jpg" alt="card-img-top" style="width: 350px; height: 200px">
 
                             {% endif %}
 
