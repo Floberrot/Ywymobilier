@@ -77,14 +77,13 @@
             </li>
 
 
-                {% if app.user %}
-            {% if 'Proprietaire' in app.user.roles %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('admin.property.index') }}">Administration</a>
-                </li>
-            {% endif %}
-
+            {% if app.user %}
+                {% if 'Proprietaire' in app.user.roles %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin.property.index') }}">Administration</a>
+                    </li>
                 {% endif %}
+            {% endif %}
 
 
 
