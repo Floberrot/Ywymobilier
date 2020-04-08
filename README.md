@@ -6,10 +6,10 @@ Une application mobile sera disponible à destination DES ETUDIANTS seulement, q
 
 # Techonologies utilisées
 
-[Symfony 4](https://symfony.com/)
-[Twig](https://twig.symfony.com/)
-[Heroku pour le déploiement](https://dashboard.heroku.com/)
-[MySQL/JaywsDB MySQL](https://www.jawsdb.com/)
+[Symfony 4](https://symfony.com/)  
+[Twig](https://twig.symfony.com/)  
+[Heroku pour le déploiement](https://dashboard.heroku.com/)  
+[MySQL/JaywsDB MySQL](https://www.jawsdb.com/)  
 
 Langage utilisé : PHP/JS
 
