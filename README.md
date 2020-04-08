@@ -21,3 +21,13 @@ Inscription connexion avec role (Etudiant ou propriéaire)
 Contact pour laisser un message aux créateurs  
 Contact du propétaire (le numéro et le mail s'affiche mais ne permette pas de directement contacter via le site)  
 Affichage en détail des propriétés
+
+# Pour tester le site
+
+Aller dans la page connexion,  
+Ensuite il faut vous créer un compte PROPRIETAIRE pour tester le back office,  
+Essayer d'ajouter des biens en respectant quelques critère (blocage des loyers trop élevé, d'une description trop courte par exemple)  
+Aller dans la page administration, et tenté de créer un bien, de le modifier et ensuite le supprimer)  
+naviguer a travers les offres pour voir le rendu de votre offre.  
+La gestion de vos images doit fonctionner hormis un bug toujours pas régler a l'heure actuelle, la première photo que vous ajouté ne supprime pas, on essayera de régler cela le plus vite possible.  
+Vous pouver vous rendre ensuite sur mon profil pour vérifier que vos informations sont bonnes puis vous déconecter si vous le souhaitez.  En revanche le système de Token fournit par symfony qui permet de fermer une session au  bout d'un certain laps de temps connait quelque problème dont on ne connait pas encore la source, nous nous en somme rendu compte un peu tard pour corriger le bug le jour du rendu.
