@@ -29,5 +29,5 @@ Ensuite il faut vous créer un compte PROPRIETAIRE pour tester le back office,
 Essayez d'ajouter des biens en respectant quelques critère (blocage des loyers trop élevé, d'une description trop courte par exemple)  
 Allez dans la page administration, et tentez de créer un bien, de le modifier et ensuite le supprimer)  
 naviguer a travers les offres pour voir le rendu de votre offre.  
-La gestion de vos images doit fonctionner hormis un bug toujours pas régler a l'heure actuelle, la première photo que vous ajouté ne supprime pas, on essayera de régler cela le plus vite possible.  
+La gestion de vos images doit fonctionner hormis un bug toujours pas régler a l'heure actuelle, la première photo que vous ajoutez ne se supprimera pas, on essayera de régler cela le plus vite possible.  
 Vous pouver vous rendre ensuite sur mon profil pour vérifier que vos informations sont bonnes puis vous déconecter si vous le souhaitez.  En revanche le système de Token fournit par symfony qui permet de fermer une session au  bout d'un certain laps de temps connait quelque problème dont on ne connait pas encore la source, nous nous en somme rendu compte un peu tard pour corriger le bug le jour du rendu.
