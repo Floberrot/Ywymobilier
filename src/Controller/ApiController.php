@@ -11,16 +11,13 @@ class ApiController extends AbstractController
 {
     /**
      * @Route("/api", name="api")
-     * @param UserRepository $userRepository
      * @return Response
      */
-    public function index(UserRepository $userRepository)
+    public function index()
     {
 
-        $user = $userRepository->findAll();
         return $this->render('pages/api.php', [
             'controller_name' => 'ApiController',
-            'user'=>$user
         ]);
     }
 }
