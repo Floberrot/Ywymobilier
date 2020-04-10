@@ -25,7 +25,7 @@ Affichage en détail des propriétés
 # Pour tester le site
 
 Allez dans la page connexion,  
-Ensuite il faut vous créer un compte PROPRIETAIRE pour tester le back office,  
+Ensuite il faut vous connecter avec les identifiants (admin/admin) pour tester le back office,  
 Essayez d'ajouter des biens en respectant quelques critère (blocage des loyers trop élevé, d'une description trop courte par exemple)  
 Allez dans la page administration, et tentez de créer un bien, de le modifier et ensuite le supprimer)  
 naviguer a travers les offres pour voir le rendu de votre offre.  
