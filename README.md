@@ -16,15 +16,15 @@ Langage utilisé : PHP/JS
 
 # Fonctionnalités précises 
 
-Ajout/suppresion/modifiction de biens pour les propriétaires  
-Inscription connexion avec role (Etudiant ou propriéaire)  
-Contact pour laisser un message aux créateurs  
-Contact du propétaire (le numéro et le mail s'affiche mais ne permette pas de directement contacter via le site)  
-Affichage en détail des propriétés
+- Ajout/suppresion/modifiction de biens pour les propriétaires  
+- Inscription connexion avec role (Etudiant ou propriéaire)  
+- Contact pour laisser un message aux créateurs  
+- Contact du propétaire (le numéro et le mail s'affiche mais ne permette pas de directement contacter via le site)  
+- Affichage en détail des propriétés
 
 # Pour tester le site
 
-Allez dans la page connexion,  
+Allez dans la page connexion. 
 Ensuite il faut vous connecter avec les identifiants (id :admin / mdp: admin) pour tester le back office,  
 Essayez d'ajouter des biens en respectant quelques critère (blocage des loyers trop élevé, d'une description trop courte par exemple)  
 Allez dans la page administration, et tentez de créer un bien, de le modifier et ensuite le supprimer)  
