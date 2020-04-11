@@ -43,7 +43,13 @@ Vous pouver vous rendre ensuite sur mon profil pour vérifier que vos informatio
 
 # Notre base de données (MySQL)
 
-User ( int id Primary Key, varchar email, varchar password, varchar username, varchar first_name, varchar last_name, int num, longtext roles, varchar api_token)  
-Property (int id Primary Key, int user_id Foreign Key in reference to id of User, varchar title, longtext description, int surface, int rooms, int floor, int price, varchar city, varchar address, varchar cp, timestamp created_at, tinyint locate)  
-Picture (int id Primary Key, int property_id Foreign Key in reference to id of Property, varchar filename, datetime upadted_at)  
-Contact (int id Primary Key, varchar name, varchar email, varchar subject, varchar message)
+## User  
+( int id Primary Key, varchar email, varchar password, varchar username, varchar first_name, varchar last_name, int num, longtext roles, varchar api_token)  
+## Property  
+(int id Primary Key, int user_id Foreign Key in reference to id of User, varchar title, longtext description, int surface, int rooms, int floor, int price, varchar city, varchar address, varchar cp, timestamp created_at, tinyint locate)  
+  
+## Picture  
+(int id Primary Key, int property_id Foreign Key in reference to id of Property, varchar filename, datetime upadted_at)    
+
+## Contact   
+(int id Primary Key, varchar name, varchar email, varchar subject, varchar message)
