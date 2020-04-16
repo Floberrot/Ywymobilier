@@ -54,3 +54,5 @@ int id Primary Key, int property_id Foreign Key in reference to id of Property, 
 
 ## Contact   
 int id Primary Key, varchar name, varchar email, varchar subject, varchar message
+
+<img src="BDD.PNG" alt="Base de donnée" width="600"/>
